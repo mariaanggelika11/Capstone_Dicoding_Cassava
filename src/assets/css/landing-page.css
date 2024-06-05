@@ -46,6 +46,7 @@ navbar .navbar-nav .nav-link,
 	display: flex;
 	align-items: center;
 	margin: 0 auto;
+	text-align: center;
 }
 
 .navbar-brand i {
@@ -482,6 +483,208 @@ section {
 	display: none;
 	transition: 0.6s;
 }
+
+/* contact  */
+.contact .info-box {
+	color: #444444;
+	text-align: center;
+	box-shadow: 0 0 20px rgba(214, 215, 216, 0.5);
+	padding: 20px 0 30px 0;
+}
+
+.contact .info-box i {
+	font-size: 32px;
+	color: #CE4815;
+	padding: 8px;
+}
+
+.contact .info-box h3 {
+	font-size: 20px;
+	color: #777777;
+	font-weight: 700;
+	margin: 10px 0;
+}
+
+.contact .info-box p {
+	padding: 0;
+	line-height: 24px;
+	font-size: 14px;
+	margin-bottom: 0;
+}
+
+.contact .email-form {
+	box-shadow: 0 0 20px rgba(214, 215, 216, 0.5);
+	padding: 30px;
+}
+
+.contact .email-form .error-message {
+	display: none;
+	color: #fff;
+	background: #ed3c0d;
+	text-align: left;
+	padding: 15px;
+	font-weight: 600;
+}
+
+.contact .email-form .error-message br+br {
+	margin-top: 25px;
+}
+
+.contact .email-form .sent-message {
+	display: none;
+	color: #fff;
+	background: #18d26e;
+	text-align: center;
+	padding: 15px;
+	font-weight: 600;
+}
+
+.contact .email-form .loading {
+	display: none;
+	background: #fff;
+	text-align: center;
+	padding: 15px;
+}
+
+.contact .email-form input,
+.contact .email-form textarea {
+	border-radius: 4px;
+	box-shadow: none;
+	font-size: 14px;
+}
+
+.contact .email-form input {
+	padding: 10px 15px;
+}
+
+.contact .email-form textarea {
+	padding: 12px 15px;
+}
+
+.contact .email-form button[type=submit] {
+	background: #CE4815;
+	border: 0;
+	padding: 10px 30px;
+	color: #fff;
+	transition: 0.4s;
+	border-radius: 4px;
+}
+
+.contact .email-form button[type=submit]:hover {
+	background: white;
+	color: #CE4815;
+}
+
+
+/* footer  */
+#footer {
+	background: #eeeeee;
+	padding: 0 0 30px 0;
+	color: #555555;
+	font-size: 14px;
+}
+
+#footer .footer-top {
+	background: #f6f6f6;
+	padding: 60px 0 30px 0;
+}
+
+#footer .footer-top .footer-info {
+	margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-info h3 {
+	font-size: 24px;
+	margin: 0 0 20px 0;
+	padding: 2px 0 2px 0;
+	line-height: 1;
+	font-weight: 700;
+}
+
+#footer .footer-top .footer-info p {
+	font-size: 14px;
+	line-height: 24px;
+	margin-bottom: 0;
+}
+
+#footer .footer-top h4 {
+	font-size: 16px;
+	font-weight: 600;
+	position: relative;
+	padding-bottom: 6px;
+}
+
+#footer .footer-top .footer-links {
+	margin-bottom: 5px;
+}
+
+/* #footer .footer-top .footer-links ul li {
+	padding: 10px 0;
+	display: flex;
+	align-items: center;
+	list-style: circle;
+} */
+
+#footer .footer-top .footer-links ul li:first-child {
+	padding-top: 0;
+}
+
+#footer .footer-top .footer-links ul a {
+	color: #555555;
+	transition: 0.3s;
+	display: inline-block;
+	line-height: 1;
+}
+
+#footer .footer-top .footer-links ul a:hover {
+	color: #CE4815;
+}
+
+#footer .footer-top .footer-newsletter form {
+	margin-top: 30px;
+	background: #fff;
+	padding: 6px 10px;
+	position: relative;
+	border: 1px solid #d5d5d5;
+	border-radius: 4px;
+}
+
+#footer .footer-top .footer-newsletter form input[type=email] {
+	border: 0;
+	padding: 4px;
+	width: calc(100% - 110px);
+}
+
+#footer .footer-top .footer-newsletter form input[type=submit] {
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	bottom: -1px;
+	border: 0;
+	background: none;
+	font-size: 16px;
+	padding: 0 20px;
+	background: #CE4815;
+	color: #fff;
+	transition: 0.3s;
+	border-radius: 0 4px 4px 0;
+}
+
+#footer .footer-top .footer-newsletter form input[type=submit]:hover {
+	background: #CE4815;
+}
+
+#footer .copyright {
+	text-align: center;
+	padding-top: 30px;
+}
+
+#footer .credits {
+	padding-top: 10px;
+	text-align: center;
+	font-size: 13px;
+}
+
 
 /* for responsive view  */
 @media (max-width: 768px) {

@@ -5,8 +5,11 @@ import heroPic from "../assets/img/Icon.png"
 import member1 from '../assets/img/maria.png';
 import member2 from '../assets/img/akmal.png'
 import member3 from '../assets/img/surya.png';
-import { LogOut, reset } from '../features/authSlice';
-import { NavLink, useNavigate } from 'react-router-dom';
+import kebun from '../assets/icons/kebun.png';
+import logistik from '../assets/icons/logistik.png';
+import pabrik from '../assets/icons/pabrik.png';
+// import { LogOut, reset } from '../features/authSlice';
+import { NavLink } from 'react-router-dom';
 import '../assets/css/landing-page.css';
 
 
@@ -16,6 +19,7 @@ const LandingPage = () => {
 
   return (
   // navbar 
+  <main>
     <div className="container">
       <nav className="navbar navbar-expand-lg bg-light fixed-top">
         <div className="container-fluid">
@@ -41,7 +45,7 @@ const LandingPage = () => {
                 <a className="nav-link" href="#team">TEAM</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/contact">CONTACT</a>
+                <a className="nav-link" href="#contact">CONTACT</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/tracebility">TRACEBILITY</a>
@@ -61,9 +65,8 @@ const LandingPage = () => {
                 </h1>
                 <p>Bisnis jual beli mu sangat menguntungkan ayo bergabung disini, gratis lho!</p>
                 <div className="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                  <NavLink className="btn btn-outline-danger log-in-button btn-lg px-5 py-3 fs-6 fw-bolder" to="login.html"><i
-                      className="fa-solid fa-user "></i>Log
-                    In</NavLink>
+                  <NavLink className="btn btn-outline-danger log-in-button btn-lg px-5 py-3 fs-6 fw-bolder" to="/login"><i
+                      className="fa-solid fa-user "></i>Log In</NavLink>
                 </div>
               </div>
             </div>
@@ -90,7 +93,7 @@ const LandingPage = () => {
         <div className="row featured-services mt-2 gx-5 my-5" data-aos="fade-up">
           <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div className="icon-box" data-aos="fade-up" data-aos-delay="100">
-              <div className="icon"><i className="fas fa-heartbeat"></i></div>
+              <div className="icon"><i className="fa-solid fa-link"></i></div>
               <h4 className="title"><NavLink className='service-link' to="">Rantai Pasok</NavLink></h4>
               <p className="description">memastikan seluruh rantai pasoknya terdiri dari minyak kelapa sawit yang berasal dari sumber yang bertanggung jawab.</p>
             </div>
@@ -98,7 +101,7 @@ const LandingPage = () => {
 
           <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div className="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <div className="icon"><i className="fas fa-wind"></i></div>
+              <div className="icon"><i className="fa-solid fa-cube"></i></div>
               <h4 className="title"><NavLink to="" className='service-link'>Blockchain Technology</NavLink></h4>
               <p className="description">mekanisme basis data lanjutan yang memungkinkan berbagi informasi secara transparan dalam jaringan bisnis. .</p>
             </div>
@@ -106,7 +109,7 @@ const LandingPage = () => {
 
           <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div className="icon-box" data-aos="fade-up" data-aos-delay="300">
-              <div className="icon"><i className="fas fa-trowel-bricks"></i></div>
+              <div className="icon"><i className="fa-solid fa-book"></i></div>
               <h4 className="title"><NavLink to="" className='service-link' >Model Konvensional</NavLink></h4>
               <p className="description">Seluruh stakeholder yang terkait tidak memiliki data satu sama lain dan tidak terhubung antar bagian. </p>
             </div>
@@ -114,7 +117,7 @@ const LandingPage = () => {
 
           <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div className="icon-box" data-aos="fade-up" data-aos-delay="400">
-              <div className="icon"><i className="fas fa-dna"></i></div>
+              <div className="icon"><i class="fa-solid fa-tachograph-digital"></i></div>
               <h4 className="title"><NavLink to="" className='service-link'>Model Digital</NavLink></h4>
               <p className="description">Seluruh stakeholder mempunyai data satu sama lain dalam proses ketertelusuran hasil CPO</p>
             </div>
@@ -202,23 +205,23 @@ const LandingPage = () => {
 
       {/* stakeholder  */}
       <section id="stakeholder" className="services services">
-        <div  data-aos="fade-up">
+        <div data-aos="fade-up">
           <div className="section-title">
             <h2 className='gradient-text'>Stakeholder</h2>
           </div>
           <div className="row">
             <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
-              <div className="icon"><i className="fas fa-wheat-awn"></i></div>
+              <div className="icon"><img src={kebun} alt="kebun" style={{ width:"50%" }} /></div>
               <h4 className="title"><NavLink to="" style={{ textDecoration: "none" }}>Kebun</NavLink></h4>
               <p className="description">Stakeholder kebun bagian pertama dalam proses ketertelusuran bahan baku crude palm oil. Mulai dari memanen Tandan Buah Segar hingga mengirim produk TBS tersebut ke stakeholder logistik</p>
             </div>
             <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
-              <div className="icon"><i className="fas fa-truck-droplet"></i></div>
+              <div className="icon"><img src={logistik} alt="logistik" style={{ width:"50%" }} /></div>
               <h4 className="title"><NavLink to=""  style={{ textDecoration: "none" }}>Logistik</NavLink></h4>
               <p className="description">Stakeholder logistik menjadi garda terdepan untuk mengirimkan produk tandan buah segar ke pabrik untuk diolah menjadi crude palm oil</p>
             </div>
             <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
-              <div className="icon"><i className="fas fa-building"></i></div>
+              <div className="icon"><img src={pabrik} alt="pabrik" style={{ width:"50%" }} /></div>
               <h4 className="title"><NavLink to="" style={{ textDecoration: "none" }}>Pabrik</NavLink></h4>
               <p className="description">Stakeholder pabrik mengolah tandan buah segar melalui beberapa station seperti penimbangan, perebusan, pemurnian, pengempaan dan lain lain </p>
             </div>
@@ -271,24 +274,24 @@ const LandingPage = () => {
       </section>
 
       {/* question  */}
-      <section id="faq" class="faq section-bg">
+      <section id="faq" className="faq section-bg">
         <div data-aos="fade-up">
-          <div class="section-title">
+          <div className="section-title">
             <h2 className='gradient-text'>Frequently Asked Questioins</h2>
             <p></p>
           </div>
-          <ul class="faq-list">
+          <ul className="faq-list">
             <li>
-              <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Ingin menggunakan jasa telsa super apps untuk perusahaan anda? <i class="fa-solid fa-chevron-down icon-show"></i><i class="fa-solid fa-chevron-down icon-close"></i></div>
-              <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+              <div data-bs-toggle="collapse" className="collapsed question" href="#faq1">Ingin menggunakan jasa telsa super apps untuk perusahaan anda? <i className="fa-solid fa-chevron-down icon-show"></i><i className="fa-solid fa-chevron-up icon-close"></i></div>
+              <div id="faq1" className="collapse" data-bs-parent=".faq-list">
                 <p>
                   hubungi kontak yang tersedia untuk menggunakan jasa telsa super apps untuk implementasi web apps pada perusahaan anda
                 </p>
               </div>
             </li>
             <li>
-              <div data-bs-toggle="collapse" href="#faq2" class="collapsed question"> Cara tracing prdouk CPO? <i class="fa-solid fa-chevron-down icon-show"></i><i class="fa-solid fa-chevron-down icon-close"></i></div>
-              <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+              <div data-bs-toggle="collapse" href="#faq2" className="collapsed question"> Cara tracing produk CPO? <i className="fa-solid fa-chevron-down icon-show"></i><i className="fa-solid fa-chevron-up icon-close"></i></div>
+              <div id="faq2" className="collapse" data-bs-parent=".faq-list">
                 <p>
                   Masukan kode CPO anda, kemudian akan muncul data traceability Crude Palm Oil anda
                 </p>
@@ -297,7 +300,136 @@ const LandingPage = () => {
           </ul>
         </div>
       </section>
-    </div>
+
+      {/* contact  */}
+      <section id="contact" className="contact">
+        <div className="section-title">
+          <h2 className='gradient-text'>Contact Us</h2>      
+        </div>
+        <div>
+          <iframe
+              title="Google Maps"
+              style={{ border: 0, width: '100%', height: '350px' }}
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d63553.420703949225!2d105.27055501805027!3d-5.403443199999966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1669675472845!5m2!1sid!2sid"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <div className="row mt-5">
+          <div className="col-lg-6">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="info-box">
+                  <i className="fa-solid fa-map"></i>
+                  <h3>Our Address</h3>
+                  <p>Jl.Prof.Dr Soemantri Brodjonegoro</p>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="info-box mt-4">
+                  <i className="fa-solid fa-envelope"></i>
+                  <h3>Email Us</h3>
+                  <p>Cassava@gmail.com</p>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="info-box mt-4">
+                  <i className="fa-solid fa-phone"></i>
+                  <h3>Call Us</h3>
+                  <p>+62 83191087290</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-6">
+            <form className="email-form">
+              <div className="row">
+                <div className="col-md-6 form-group">
+                  <input type="text" name="name" className="form-control" id="name" placeholder="Your Name" required=""/>
+                </div>
+                <div className="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" className="form-control" name="email" id="email" placeholder="Your Email" required=""/>
+                </div>
+              </div>
+              <div className="form-group mt-3">
+                <input type="text" className="form-control" name="subject" id="subject" placeholder="Subject" required=""/>
+              </div>
+              <div className="form-group mt-3">
+                <textarea className="form-control" name="message" rows="7" placeholder="Message" required=""></textarea>
+              </div>
+              <div className="my-3">
+                <div className="loading">Loading</div>
+                <div className="error-message"></div>
+                <div className="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div className="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>   
+
+      {/* footer  */}
+    <footer id="footer">
+      <div className="footer-top">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-3 col-md-6">
+              <div className="footer-info">
+                <h3 className='gradient-text'>Cassava Super</h3>
+                <p>
+                  Jl.Prof.Dr Soemantri Brodjonegoro 35141, Lampung 
+                  <br/>
+                  <strong>Phone : </strong>+62 83191087290 <br />
+                  <strong>Email : </strong>Cassava@gmail.com
+                </p>
+              </div>
+            </div>
+
+            <div className="col-lg-2 col-md-6 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><a href="/">Dashboard</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#stakeholder">Stakeholder</a></li>
+                <li><a href="#service">Terms of service</a></li>
+                <li><a href="/">Privacy policy</a></li>
+              </ul>
+            </div>
+
+            <div className="col-lg-3 col-md-6 footer-links">
+              <h4>Our Services</h4>
+              <ul style={{ listStyleType: 'circle'}}>
+                <li><a href="/">Web Design</a></li>
+                <li><a href="/">Web Development</a></li>
+                <li><a href="/">Product Management</a></li>
+                <li><a href="/">Marketing</a></li>
+                <li><a href="/">Graphic Design</a></li>
+              </ul>
+            </div>
+
+            <div className="col-lg-4 col-md-6 footer-newsletter">
+              <h4>Our Newsletter</h4>
+              <p>kirimkan saran dan kritik anda</p>
+              <form action="" method="post">
+                <input type="email" name="email"/>
+                <input type="submit" value="Subscribe"/>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container">
+        <div className="copyright">
+          &copy; Copyright <strong><span>Cassava Super</span></strong>. All Rights Reserved
+        </div>
+      </div>
+    </footer>
+  </main>   
+    
   );
 }
 
