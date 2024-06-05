@@ -8,11 +8,6 @@ html {
 	scroll-behavior: smooth;
 }
 
-body {
-	padding-top: 100px;
-}
-
-
 /* custom color text  */
 .gradient-text {
 	background: linear-gradient(90deg, #CE4815 0%, #FF8A01 100%);

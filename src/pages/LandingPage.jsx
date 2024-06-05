@@ -18,8 +18,17 @@ const LandingPage = () => {
   const nama = 'Dwi Aji';
 
   return (
-  // navbar 
+    // internal styling 
+    <>
+    <style jsx>{`
+     body {
+      padding-top: 80px;
+    }    
+    `}</style>
+
+
   <main>
+    {/* navbar  */}
     <div className="container">
       <nav className="navbar navbar-expand-lg bg-light fixed-top">
         <div className="container-fluid">
@@ -117,7 +126,7 @@ const LandingPage = () => {
 
           <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div className="icon-box" data-aos="fade-up" data-aos-delay="400">
-              <div className="icon"><i class="fa-solid fa-tachograph-digital"></i></div>
+              <div className="icon"><i className="fa-solid fa-tachograph-digital"></i></div>
               <h4 className="title"><NavLink to="" className='service-link'>Model Digital</NavLink></h4>
               <p className="description">Seluruh stakeholder mempunyai data satu sama lain dalam proses ketertelusuran hasil CPO</p>
             </div>
@@ -429,7 +438,7 @@ const LandingPage = () => {
       </div>
     </footer>
   </main>   
-    
+  </>  
   );
 }
 
