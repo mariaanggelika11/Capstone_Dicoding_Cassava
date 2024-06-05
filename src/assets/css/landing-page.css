@@ -191,7 +191,7 @@ section {
 .section-title h2 {
 	font-size: 32px;
 	font-weight: bold;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 	position: relative;
@@ -291,7 +291,7 @@ section {
 }
 
 .counts .count-box h1 {
-	font-size: 42px;
+	font-size: 24px;
 	line-height: 24px;
 	display: block;
 	font-weight: 400;
@@ -304,7 +304,7 @@ section {
 .counts .count-box p {
 	padding: 30px 0 0 0;
 	margin: 0;
-	font-size: 18px;
+	font-size: 14px;
 }
 
 .counts .count-box a {
@@ -323,7 +323,167 @@ section {
 
 }
 
+/* stakeholder  */
+.services .icon-box {
+	margin-bottom: 20px;
+	text-align: center;
+}
 
+.services .icon {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 80px;
+	height: 80px;
+	margin-bottom: 20px;
+	background: #fff;
+	border-radius: 50%;
+	transition: 0.5s;
+	color: #CE4815;
+	overflow: hidden;
+	box-shadow: 0px 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.services .icon i {
+	font-size: 36px;
+	line-height: 0;
+}
+
+.services .title {
+	font-weight: 600;
+	margin-bottom: 15px;
+	font-size: 18px;
+	position: relative;
+	padding-bottom: 15px;
+}
+
+.services .title a {
+	color: #CE4815;
+	transition: 0.3s;
+}
+
+.services .description {
+	line-height: 24px;
+	font-size: 14px;
+}
+
+
+/* teams  */
+.teams {
+	text-align: center;
+}
+
+.teams .member {
+	margin-bottom: 20px;
+	overflow: hidden;
+	text-align: center;
+	border-radius: 4px;
+	background: #fff;
+	box-shadow: 0px 2px 15px rgba(63, 187, 192, 0.1);
+	display: inline-block;
+	width: 55%;
+}
+
+.teams .member .member-img img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	object-position: center;
+}
+
+.teams .member .member-info {
+	padding: 25px 15px;
+	background-color: #CE4815;
+}
+
+.teams .member .member-info h4 {
+	font-weight: 700;
+	margin-bottom: 5px;
+	font-size: 18px;
+	color: white;
+}
+
+.teams .member .member-info span {
+	display: block;
+	font-size: 13px;
+	font-weight: 400;
+	color: white;
+}
+
+.teams .member .member-info p {
+	font-style: italic;
+	font-size: 14px;
+	line-height: 26px;
+	color: #777777;
+}
+
+.teams .member:hover .social {
+	opacity: 1;
+}
+
+/* faq  */
+.faq {
+	padding: 60px 0;
+}
+
+.faq .faq-list {
+	padding: 0;
+	list-style: none;
+}
+
+.faq .faq-list li {
+	border-bottom: 1px solid #d9f1f2;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+
+.faq .faq-list .question {
+	display: block;
+	position: relative;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 400;
+	padding-left: 25px;
+	cursor: pointer;
+	color: #CE4815;
+	transition: 0.3s;
+}
+
+.faq .faq-list i {
+	font-size: 16px;
+	position: absolute;
+	left: 0;
+	top: -2px;
+}
+
+.faq .faq-list p {
+	margin-bottom: 0;
+	padding: 10px 0 0 25px;
+}
+
+.faq .faq-list .icon-show {
+	display: none;
+}
+
+.faq .faq-list .collapsed {
+	color: black;
+}
+
+.faq .faq-list .collapsed:hover {
+	color: #CE4815;
+}
+
+.faq .faq-list .collapsed .icon-show {
+	display: inline-block;
+	transition: 0.6s;
+}
+
+.faq .faq-list .collapsed .icon-close {
+	display: none;
+	transition: 0.6s;
+}
+
+/* for responsive view  */
 @media (max-width: 768px) {
 	p {
 		font-size: 0.875em;

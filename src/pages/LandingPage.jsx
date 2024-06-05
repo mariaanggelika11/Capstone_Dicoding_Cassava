@@ -2,9 +2,13 @@
 import React from 'react';
 import about from '../assets/img/about.png';
 import heroPic from "../assets/img/Icon.png"
-import ctaPic from "../assets/img/image 2.png";
+import member1 from '../assets/img/maria.png';
+import member2 from '../assets/img/akmal.png'
+import member3 from '../assets/img/surya.png';
 import { LogOut, reset } from '../features/authSlice';
 import { NavLink, useNavigate } from 'react-router-dom';
+import '../assets/css/landing-page.css';
+
 
 const LandingPage = () => {
 
@@ -25,22 +29,22 @@ const LandingPage = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/dashboard">DASHBOARD</NavLink>
+                <a className="nav-link" href="/dashboard">DASHBOARD</a>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="#about">ABOUT</NavLink>
+                <a className="nav-link" href="#about">ABOUT</a>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/stackholder">STACKHOLDER</NavLink>
+                <a className="nav-link" href="#stakeholder">STACKHOLDER</a>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/team">TEAM</NavLink>
+                <a className="nav-link" href="#team">TEAM</a>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/contact">CONTACT</NavLink>
+                <a className="nav-link" href="/contact">CONTACT</a>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/tracebility">TRACEBILITY</NavLink>
+                <a className="nav-link" href="/tracebility">TRACEBILITY</a>
               </li>
             </ul>
           </div>
@@ -49,7 +53,7 @@ const LandingPage = () => {
 
       {/* hero section  */}
       <section id='hero' className="py-5">
-        <div className="container px-5 pb-5">
+        <div className="px-5 pb-5">
           <div className="row gx-5 align-items-center">
             <div className="col-xxl-5">
               <div className="text-center text-xxl-start">
@@ -159,13 +163,13 @@ const LandingPage = () => {
 
       {/* counts  */}
       <section id="counts" className="counts">
-        <div className="container" data-aos="fade-up">
+        <div data-aos="fade-up">
           <div className="row no-gutters">
             <div className="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
               <div className="count-box mt-3">
               <h1 data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" className="purecounter bg-young-grey d-inline-block p-3"><strong>10</strong></h1>
                 <p><strong>Data Approved</strong></p>
-                <a href="#"><i className="fa-solid fa-arrow-right"></i></a>
+                <NavLink to="#"><i className="fa-solid fa-arrow-right"></i></NavLink>
               </div>
             </div>
 
@@ -173,7 +177,7 @@ const LandingPage = () => {
               <div className="count-box mt-3">
               <h1 data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" className="purecounter bg-young-grey d-inline-block p-3"><strong>10</strong></h1>
                 <p><strong>Data On Process</strong></p>
-                <a href="#"><i className="fa-solid fa-arrow-right"></i></a>
+                <NavLink to="#"><i className="fa-solid fa-arrow-right"></i></NavLink>
               </div>
             </div>
 
@@ -181,7 +185,7 @@ const LandingPage = () => {
               <div className="count-box mt-3">
               <h1 data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" className="purecounter bg-young-grey d-inline-block p-3"><strong>10</strong></h1>     
                 <p><strong>Jumlah Data</strong></p>
-                <a href="#"><i className="fa-solid fa-arrow-right"></i></a>
+                <NavLink to="#"><i className="fa-solid fa-arrow-right"></i></NavLink>
               </div>
             </div>
 
@@ -189,7 +193,7 @@ const LandingPage = () => {
               <div className="count-box mt-3">
               <h1 data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" className="purecounter bg-young-grey d-inline-block p-3"><strong>10</strong></h1>      
               <p><strong>Data Views</strong></p>
-                <a href="#"><i className="fa-solid fa-arrow-right"></i></a>
+                <NavLink to="#"><i className="fa-solid fa-arrow-right"></i></NavLink>
               </div>
             </div>
           </div>
@@ -197,33 +201,102 @@ const LandingPage = () => {
       </section>
 
       {/* stakeholder  */}
-
-      <section id="services" class="services services">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Stakeholder</h2>
-          <p></p>
+      <section id="stakeholder" className="services services">
+        <div  data-aos="fade-up">
+          <div className="section-title">
+            <h2 className='gradient-text'>Stakeholder</h2>
+          </div>
+          <div className="row">
+            <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
+              <div className="icon"><i className="fas fa-wheat-awn"></i></div>
+              <h4 className="title"><NavLink to="" style={{ textDecoration: "none" }}>Kebun</NavLink></h4>
+              <p className="description">Stakeholder kebun bagian pertama dalam proses ketertelusuran bahan baku crude palm oil. Mulai dari memanen Tandan Buah Segar hingga mengirim produk TBS tersebut ke stakeholder logistik</p>
+            </div>
+            <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
+              <div className="icon"><i className="fas fa-truck-droplet"></i></div>
+              <h4 className="title"><NavLink to=""  style={{ textDecoration: "none" }}>Logistik</NavLink></h4>
+              <p className="description">Stakeholder logistik menjadi garda terdepan untuk mengirimkan produk tandan buah segar ke pabrik untuk diolah menjadi crude palm oil</p>
+            </div>
+            <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
+              <div className="icon"><i className="fas fa-building"></i></div>
+              <h4 className="title"><NavLink to="" style={{ textDecoration: "none" }}>Pabrik</NavLink></h4>
+              <p className="description">Stakeholder pabrik mengolah tandan buah segar melalui beberapa station seperti penimbangan, perebusan, pemurnian, pengempaan dan lain lain </p>
+            </div>
+          </div>
         </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon"><i class="fas fa-wheat-awn"></i></div>
-            <h4 class="title"><a href="">Kebun</a></h4>
-            <p class="description">Stakeholder kebun bagian pertama dalam proses ketertelusuran bahan baku crude palm oil. Mulai dari memanen Tandan Buah Segar hingga mengirim produk TBS tersebut ke stakeholder logistik</p>
+       </section>
+
+       {/* teams  */}
+      <section id="teams" className="teams section-bg">
+        <div data-aos="fade-up">
+          <div className="section-title">
+            <h2 className='gradient-text'>Teams</h2>
           </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon"><i class="fas fa-truck-droplet"></i></div>
-            <h4 class="title"><a href="">Logistik</a></h4>
-            <p class="description">Stakeholder logistik menjadi garda terdepan untuk mengirimkan produk tandan buah segar ke pabrik untuk diolah menjadi crude palm oil</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon"><i class="fas fa-building"></i></div>
-            <h4 class="title"><a href="">Pabrik</a></h4>
-            <p class="description">Stakeholder pabrik mengolah tandan buah segar melalui beberapa station seperti penimbangan, perebusan, pemurnian, pengempaan dan lain lain </p>
+          <div className="row justify-content-center">
+            <div className="col-lg-4 col-md-6-d-flex align-items-stretch">
+              <div className="member" data-aos="fade-up" data-aos-delay="200">
+                <div className="member-img">
+                  <img src={member1} className="img-fluid" alt=""/>
+                </div>
+                <div className="member-info">
+                  <h4>Maria Anggelika</h4>
+                  <span>Back End</span>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6-d-flex align-items-stretch">
+              <div className="member" data-aos="fade-up" data-aos-delay="200">
+                <div className="member-img">
+                  <img src={member2} className="img-fluid" alt=""/>
+                </div> 
+                <div className="member-info">
+                  <h4>Akmal Rahim</h4>
+                  <span>Front End</span>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6-d-flex align-items-stretch">
+              <div className="member" data-aos="fade-up" data-aos-delay="200">
+                <div className="member-img">
+                  <img src={member3} className="img-fluid" alt=""/>
+                </div>
+                <div className="member-info">
+                  <h4>M. Surya Rahman</h4>
+                  <span>Testing</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+      {/* question  */}
+      <section id="faq" class="faq section-bg">
+        <div data-aos="fade-up">
+          <div class="section-title">
+            <h2 className='gradient-text'>Frequently Asked Questioins</h2>
+            <p></p>
+          </div>
+          <ul class="faq-list">
+            <li>
+              <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Ingin menggunakan jasa telsa super apps untuk perusahaan anda? <i class="fa-solid fa-chevron-down icon-show"></i><i class="fa-solid fa-chevron-down icon-close"></i></div>
+              <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  hubungi kontak yang tersedia untuk menggunakan jasa telsa super apps untuk implementasi web apps pada perusahaan anda
+                </p>
+              </div>
+            </li>
+            <li>
+              <div data-bs-toggle="collapse" href="#faq2" class="collapsed question"> Cara tracing prdouk CPO? <i class="fa-solid fa-chevron-down icon-show"></i><i class="fa-solid fa-chevron-down icon-close"></i></div>
+              <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Masukan kode CPO anda, kemudian akan muncul data traceability Crude Palm Oil anda
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
   );
 }

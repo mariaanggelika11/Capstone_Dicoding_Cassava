@@ -6,7 +6,6 @@ import App from './App';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
-import './assets/css/style.css';
 import '@popperjs/core/dist/umd/popper';
 import './assets/fontawesome-free-6.5.2-web/css/all.min.css';
 import AOS from 'aos';
