@@ -1,4 +1,4 @@
-import User from "../models/DataPabrikModel.js";
+import User from "../models/UserModel.js";
 import argon2 from "argon2";
 import PetaniUsers from "../models/PetaniUserModel.js";
 import LogisticUser from "../models/LogisticUserModel.js";

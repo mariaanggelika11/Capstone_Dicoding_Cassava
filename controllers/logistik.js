@@ -1,5 +1,5 @@
 import Logistik from "../models/DataLogisticModel.js";
-import User from "../models/DataPabrikModel.js";
+import User from "../models/UserModel.js";
 
 export const getLogistik = async (req, res) => {
   try {

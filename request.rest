@@ -1,11 +1,31 @@
-### Login Request
-POST http://localhost:5000/login
+POST http://localhost:5000/register
 Content-Type: application/json
 
 {
-    "name": "Maria Anggelika",
-  "email": "admin@gmail.com",
-  "password": "123456",
-  "confPassword": "123456",
-  "role": "admin"
+  "uuid": "USR-QVs3UD",
+  "name": "Dwikashinta",
+  "email": "petani@gmail.com",
+  "nohp": "081234567890",
+  "alamat": "Jl. Contoh No. 123",
+  "foto": "url_foto",
+  "url": "url",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$CjDOfW2bS/03wtGh2nV...",
+  "createdAt": "2024-06-01T13:42:57.000Z",
+  "updatedAt": "2024-06-01T13:42:57.000Z"
 }
+
+### POST create a new petani ###
+POST  http://localhost:5000/petani
+Content-Type: application/json
+
+{
+  "tanggalPenerimaan": "2024-06-06",
+  "beratTotalDiterima": 100.5,
+  "evaluasiKualitas": "Baik",   
+  "kapasitasProduksi": 200.5,
+  "produksiHarianTapioka": 50.5,
+  "kualitasOutput": "Standard",
+  "uuid": "USR-QVs3UD"
+}
+
+SELECT * FROM data_pabrik WHERE uuid = 'USR-pS9Wap';

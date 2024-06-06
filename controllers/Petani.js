@@ -1,5 +1,5 @@
 import Petani from "../models/DataPetaniModel.js";
-import User from "../models/DataPabrikModel.js";
+import User from "../models/UserModel.js";
 import { Op } from "sequelize";
 
 export const getPetanis = async (req, res) => {

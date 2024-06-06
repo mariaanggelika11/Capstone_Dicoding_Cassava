@@ -5,7 +5,7 @@ import LogisticUser from "../models/LogisticUserModel.js";
 import PabrikUser from "../models/PabrikUserModel.js";
 import PetaniUser from "../models/PetaniUserModel.js";
 import OrderPemanen from "../models/OrderPemanenModel.js";
-import User from "../models/DataPabrikModel.js";
+import User from "../models/UserModel.js";
 
 export const searchById = async (req, res) => {
   try {

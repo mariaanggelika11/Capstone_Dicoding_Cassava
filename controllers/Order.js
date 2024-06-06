@@ -1,5 +1,5 @@
 import Product from "../models/OrderPemanenModel.js";
-import User from "../models/DataPabrikModel.js";
+import User from "../models/UserModel.js";
 import { Op } from "sequelize";
 
 export const getProducts = async (req, res) => {

@@ -1,6 +1,22 @@
 import User from "../models/UserModel.js";
 import argon2 from "argon2";
 
+export const Register = async (req, res) => {
+  const { name, email, password, role } = req.body;
+  try {
+    const hashedPassword = await argon2.hash(password);
+    await User.create({
+      name,
+      email,
+      password: hashedPassword,
+      role,
+    });
+    res.status(201).json({ msg: "User registered successfully" });
+  } catch (error) {
+    res.status(400).json({ msg: "Error registering user", error: error.message });
+  }
+};
+
 export const Login = async (req, res) => {
   const user = await User.findOne({
     where: {

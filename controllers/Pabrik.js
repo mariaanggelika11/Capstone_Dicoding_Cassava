@@ -1,5 +1,5 @@
 import Pabrik from "../models/DataPabrikModel.js"; // Pastikan path sesuai
-import User from "../models/DataPabrikModel.js"; // Pastikan path sesuai
+import User from "../models/UserModel.js";
 
 export const getPabrik = async (req, res) => {
   try {
