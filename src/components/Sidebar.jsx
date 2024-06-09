@@ -105,7 +105,7 @@ const Sidebar = () => {
       
       <ul className="list-unstyled">
         <li className="mb-2">
-          <button onClick={logout} className="btn btn-sm">
+          <button onClick={logout} className="btn btn-sm text-danger">
             <IoLogOut /> Logout
           </button>
         </li>

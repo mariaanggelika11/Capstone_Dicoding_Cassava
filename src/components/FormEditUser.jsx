@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
+
 
 const FormEditUser = () => {
   const [name, setName] = useState("");
@@ -46,11 +47,18 @@ const FormEditUser = () => {
     }
   };
   return (
+    <>
+    <style jsx>{`
+    body{
+      padding-top: 80px;
+    }
+     `}</style>
+
+
+
     <div className="container">
-    <h1 className="display-4">Users</h1>
-    <h2 className="h4">Update User</h2>
-    <div className="card shadow-sm">
-      <div className="card-body">
+      <h2 className="gradient-text">Update User</h2>
+
         <form onSubmit={updateUser}>
           <p className="text-center text-danger">{msg}</p>
           <div className="mb-3">
@@ -101,18 +109,21 @@ const FormEditUser = () => {
               onChange={(e) => setRole(e.target.value)}
             >
               <option value="admin">Admin</option>
-              <option value="user">User</option>
+              <option value="logistik">Logistik</option>
+              <option value="pabrik">Pabrik</option>
+              <option value="petani">Petani</option>
             </select>
           </div>
           <div className="mb-3">
-            <button type="submit" className="btn btn-success">
-              Update
-            </button>
+            <div className="btn-group">
+              <button type="submit" className="btn btn-success">Update</button>
+              <Link to='/users' className="btn btn-info">Back</Link>
+            </div>
           </div>
         </form>
-      </div>
-    </div>
   </div>
+
+  </>
   );
 };
 

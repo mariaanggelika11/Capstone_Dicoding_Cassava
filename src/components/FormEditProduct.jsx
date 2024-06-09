@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const FormEditProduct = () => {
   const [name, setName] = useState("");
@@ -42,51 +43,51 @@ const FormEditProduct = () => {
   };
 
   return (
-    <div>
-      <h1 className="title">Products</h1>
-      <h2 className="subtitle">Edit Product</h2>
-      <div className="card is-shadowless">
-        <div className="card-content">
-          <div className="content">
-            <form onSubmit={updateProduct}>
-              <p className="has-text-centered">{msg}</p>
-              <div className="field">
-                <label className="label">Name</label>
-                <div className="control">
-                  <input
-                    type="text"
-                    className="input"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Product Name"
-                  />
-                </div>
-              </div>
-              <div className="field">
-                <label className="label">Price</label>
-                <div className="control">
-                  <input
-                    type="text"
-                    className="input"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                    placeholder="Price"
-                  />
-                </div>
-              </div>
+<>
+      <style jsx>{`
+      body{
+        padding-top: 80px;
+      }
+       `}</style>
 
-              <div className="field">
-                <div className="control">
-                  <button type="submit" className="button is-success">
-                    Update
-                  </button>
+
+    <div className="container">
+      <h2 className="subtitle gradient-text">Edit Product</h2>
+          <form onSubmit={updateProduct}>
+            <div className="content">
+              <p className="has-text-centered">{msg}</p>
+              <div className="form-group">
+                <label className="label">Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Product Name"
+                />
+              </div>
+              <div className="form-group">
+                <label className="label">Price</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  placeholder="Price"
+                />
+              </div>
+              <div className="form-group">
+                <div className="btn-group">
+                <button type="submit" className="btn btn-success mt-3">
+                  Update
+                </button>
+                <NavLink to='/products' className='btn btn-info mt-3'>Back</NavLink>
                 </div>
               </div>
-            </form>
-          </div>
-        </div>
-      </div>
+            </div>
+          </form>
     </div>
+    </>
   );
 };
 

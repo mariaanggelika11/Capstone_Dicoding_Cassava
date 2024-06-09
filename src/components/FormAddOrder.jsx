@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const FormAddProduct = () => {
   const [tanggalPemanenan, setTanggalPemanenan] = useState("");
@@ -28,75 +29,76 @@ const FormAddProduct = () => {
   };
 
   return (
-    <div>
-      <h1 className="title">Order Pemanenan</h1>
-      <h2 className="subtitle">Add New Product</h2>
-      <div className="card is-shadowless">
-        <div className="card-content">
-          <div className="content">
-            <form onSubmit={saveProduct}>
-              <p className="has-text-centered">{msg}</p>
-              <div className="field">
-                <label className="label">Tanggal Panen</label>
-                <div className="control">
-                  <input
-                    type="date"
-                    className="input"
-                    value={tanggalPemanenan}
-                    onChange={(e) => setTanggalPemanenan(e.target.value)}
-                    placeholder="Product Name"
-                  />
-                </div>
+<>
+      <style jsx>{`
+      body{
+        padding-top: 80px;
+      }
+       `}</style>
+
+
+    <div className="container">
+      <h2 className="subtitle gradient-text">Add New Product</h2>
+
+          <form onSubmit={saveProduct}>
+            <div className="content">
+              <p className="text-center">{msg}</p>
+              <div className="mb-3">
+                <label htmlFor="tanggalPemanenan" className="form-label">Tanggal Panen</label>
+                <input
+                  type="date"
+                  className="form-control"
+                  id="tanggalPemanenan"
+                  value={tanggalPemanenan}
+                  onChange={(e) => setTanggalPemanenan(e.target.value)}
+                  placeholder="Product Name"
+                />
               </div>
-              <div className="field">
-                <label className="label">varietas/Jenis Singkong</label>
-                <div className="control">
-                  <input
-                    type="text"
-                    className="input"
-                    value={varietasSingkong}
-                    onChange={(e) => setVarietasSingkong(e.target.value)}
-                    placeholder="Varietas"
-                  />
-                </div>
+              <div className="mb-3">
+                <label htmlFor="varietasSingkong" className="form-label">Varian Singkong</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="varietasSingkong"
+                  value={varietasSingkong}
+                  onChange={(e) => setVarietasSingkong(e.target.value)}
+                  placeholder="Varietas"
+                />
               </div>
-              <div className="field">
-                <label className="label">Estimasi Berat (kg) </label>
-                <div className="control">
-                  <input
-                    type="number"
-                    className="input"
-                    value={estimasiBerat}
-                    onChange={(e) => setEstimasiBerat(e.target.value)}
-                    placeholder="0"
-                  />
-                </div>
-              </div>\
-              <div className="field">
-                <label className="label">Harga per kg (Rp) </label>
-                <div className="control">
-                  <input
-                    type="number"
-                    className="input"
-                    value={estimasiHarga}
-                    onChange={(e) => setEstimasiHarga(e.target.value)}
-                    placeholder="0"
-                  />
-                </div>
+              <div className="mb-3">
+                <label htmlFor="estimasiBerat" className="form-label">Estimasi Berat (kg)</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  id="estimasiBerat"
+                  value={estimasiBerat}
+                  onChange={(e) => setEstimasiBerat(e.target.value)}
+                  placeholder="0"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="estimasiHarga" className="form-label">Harga per kg (Rp)</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  id="estimasiHarga"
+                  value={estimasiHarga}
+                  onChange={(e) => setEstimasiHarga(e.target.value)}
+                  placeholder="0"
+                />
               </div>
 
-              <div className="field">
-                <div className="control">
-                  <button type="submit" className="button is-success">
-                    Save
-                  </button>
+              <div className="mb-3">
+                <div className="btn-group">
+                  <button type="submit" className="btn btn-success mt-3">Save</button>
+                  <NavLink to='/products' className='btn btn-info mt-3'>Back</NavLink>
                 </div>
               </div>
-            </form>
-          </div>
-        </div>
-      </div>
+            </div>
+          </form>
     </div>
+
+    </>
   );
 };
 

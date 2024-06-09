@@ -6,10 +6,9 @@ const Layout = ({ children }) => {
   return (
     <React.Fragment>
     <Navbar />
-    <div className="d-flex flex-column flex-md-row" style={{ minHeight: "100vh" }}>
+    <div className="d-flex flex-column flex-md-row">
       <div
-        className="bg-light"
-        style={{
+          style={{
           width: '16.6666%', // Bootstrap equivalent to Bulma's is-2 column
           padding: 0,
           position: 'fixed',
@@ -25,7 +24,7 @@ const Layout = ({ children }) => {
           marginLeft: '16.6666%', // Adjusted to the sidebar width
           width: '100%' // Adjust to ensure the main content takes the remaining width
         }}>
-        <main className="bg-light">{children}</main>
+        <main>{children}</main>
       </div>
     </div>
   </React.Fragment>

@@ -30,12 +30,12 @@ const Welcome = () => {
     <>
     <style jsx>{`
       body{
-        padding-top: 60px;
+        padding-top: 80px;
       }
        `}</style>
 
-       
-    <div className="container mt-3">
+
+    <div className="container">
       <div className="row">
         <div className="col-12 text-center">
           <h1 className="display-4 gradient-text">Dashboard</h1>

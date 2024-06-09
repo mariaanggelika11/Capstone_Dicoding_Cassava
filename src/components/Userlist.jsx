@@ -20,13 +20,20 @@ const Userlist = () => {
   };
 
   return (
-    <div>
-      <h1 className="title">Users</h1>
-      <h2 className="subtitle">List of Users</h2>
-      <Link to="/users/add" className="button is-primary mb-2">
+    <>
+      <style jsx>{`
+      body{
+        padding-top: 80px;
+      }
+       `}</style>
+
+
+    <div className="container">
+      <h2 className="subtitle gradient-text">List of Users</h2>
+      <Link to="/users/add" className="btn btn-primary mb-2">
         Add New
       </Link>
-      <table className="table is-striped is-fullwidth">
+      <table className="table table-sm table-striped table-hover">
         <thead>
           <tr>
             <th>No</th>
@@ -46,24 +53,28 @@ const Userlist = () => {
               <td>{user.role}</td>
               <td>{user.uuid}</td>
               <td>
-                <Link
-                  to={`/users/edit/${user.uuid}`}
-                  className="button is-small is-info"
-                >
-                  Edit
-                </Link>
-                <button
-                  onClick={() => deleteUser(user.uuid)}
-                  className="button is-small is-danger"
-                >
-                  Delete
-                </button>
+                <div className="btn-group">
+                  <Link
+                    to={`/users/edit/${user.uuid}`}
+                    className="btn btn-sm btn-info"
+                  >
+                     <i className="fas fa-edit"></i>
+                  </Link>
+                  <button
+                    onClick={() => deleteUser(user.uuid)}
+                    className="btn btn-sm btn-danger"
+                  >
+                     <i className="fas fa-trash"></i>
+                  </button>
+                </div>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
+
+</>
   );
 };
 
