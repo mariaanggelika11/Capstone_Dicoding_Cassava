@@ -18,10 +18,17 @@ const ProductList = () => {
 
   const deleteProduct = async (productId) => {
     await axios.delete(`http://localhost:5000/products/${productId}`);
-    getProducts(); // Refresh the products list after deletion
+    getProducts();
   };
 
   return (
+<>
+      <style jsx>{`
+      body{
+        padding-top: 60px;
+      }
+       `}</style>
+
     <div>
       <h1 className="title">Order Panen</h1>
       <h2 className="subtitle">Order Panenan</h2>
@@ -107,6 +114,7 @@ const ProductList = () => {
         </tbody>
       </table>
     </div>
+    </>
   );
 };
 

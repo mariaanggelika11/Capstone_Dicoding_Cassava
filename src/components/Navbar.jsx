@@ -18,11 +18,9 @@ const Navbar = () => {
 
   return (
     <div>
-    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm" role="navigation" aria-label="main navigation">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" role="navigation" aria-label="main navigation">
       <div className="container-fluid">
-        <NavLink to="/dashboard" className="navbar-brand">
-          <img src={logo} width="112" height="28" alt="logo" />
-        </NavLink>
+        <NavLink to="/dashboard" className="navbar-brand gradient-text fw-bold">Cassava Super</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasicExample" aria-controls="navbarBasicExample" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -30,7 +28,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarBasicExample">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <button onClick={logout} className="btn btn-light">
+              <button onClick={logout} className="btn">
                 Log out
               </button>
             </li>

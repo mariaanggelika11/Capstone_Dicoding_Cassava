@@ -18,17 +18,84 @@ const LandingPage = () => {
   const nama = 'Dwi Aji';
 
   return (
-    // internal styling 
-    <>
+    
+ 
+
+
+<>
     <style jsx>{`
-     body {
-      padding-top: 80px;
-    }    
+    body {
+    padding-top: 80px;
+    }
+
+    navbar .navbar-nav .nav-link,
+    .navbar-toggler-icon {
+      color: black !important;
+      font-size: 12px;
+    }
+
+      .container,
+      .container-fluid {
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      .navbar {
+        align-items: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        margin: 25px;
+      }
+
+      .navbar-brand {
+        font-size: 18px;
+        color: #CE4815;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .navbar-brand i {
+        margin-right: 10px;
+      }
+
+      .container {
+        border: #CE4815;
+      }
+
+      .nav-link {
+        position: relative;
+        text-decoration: none;
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        display: block;
+        margin-top: 5px;
+        right: 0;
+        background: orange;
+        transition: width 0.3s ease, right 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+        right: 0;
+      }
+
+      .nav-link:hover {
+        background: linear-gradient(90deg, #CE4815 0%, #FF8A01 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     `}</style>
-
-
   <main>
     {/* navbar  */}
+
     <div className="container">
       <nav className="navbar navbar-expand-lg bg-light fixed-top">
         <div className="container-fluid">
@@ -438,7 +505,7 @@ const LandingPage = () => {
       </div>
     </footer>
   </main>   
-  </>  
+  </>
   );
 }
 

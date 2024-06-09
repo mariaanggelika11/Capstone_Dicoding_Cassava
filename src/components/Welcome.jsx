@@ -27,28 +27,62 @@ const Welcome = () => {
   }, [user, user?.uuid]); // Tambahkan user.uuid sebagai dependency
 
   return (
-    <div>
-      <h1 className="title">Dashboard</h1>
-      <h2 className="subtitle">
-        Welcome Back <strong>{user && user.name}</strong>
-      </h2>
-      {userData?.additionalInfo?.url && (
-        <img src={userData.additionalInfo.url} alt={userData.name} style={{ maxWidth: '10%', height: '10%' }} />
-      )}
+    <>
+    <style jsx>{`
+      body{
+        padding-top: 60px;
+      }
+       `}</style>
 
-      <h2 className="subtitle">
-        Role Anda: <strong>{user && user.role}</strong>
-      </h2>
-      <h2 className="subtitle">
-        ID Blokchain Anda: <strong>{user && user.uuid}</strong>
-      </h2>
-      <h2 className="subtitle">
-        Email Anda: <strong>{user && user.email}</strong>
-      </h2>
-
-
-
+       
+    <div className="container mt-3">
+      <div className="row">
+        <div className="col-12 text-center">
+          <h1 className="display-4 gradient-text">Dashboard</h1>
+          <h2 className="subtitle gradient-text">
+            Welcome Back <strong>{user && user.name}</strong>
+          </h2>
+          {userData?.additionalInfo?.url && (
+            <div className="my-3">
+              <img 
+                src={userData.additionalInfo.url} 
+                alt={userData.name} 
+                className="img-fluid rounded-circle" 
+                style={{ maxWidth: '150px', height: 'auto' }} 
+              />
+            </div>
+          )}
+        </div>
+      </div>
+      
+      <div className="row pt-6">
+        <div className="col-md-4">
+          <div className="card mb-4 shadow-sm">
+            <div className="card-body">
+              <h5 className="card-title">Role Anda</h5>
+              <p className="card-text gradient-text"><strong>{user && user.role}</strong></p>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className="card mb-4 shadow-sm">
+            <div className="card-body">
+              <h5 className="card-title">ID Blockchain Anda</h5>
+              <p className="card-text gradient-text"><strong>{user && user.uuid}</strong></p>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className="card mb-4 shadow-sm">
+            <div className="card-body">
+              <h5 className="card-title">Email Anda</h5>
+              <p className="card-text gradient-text"><strong>{user && user.email}</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    </>
   );
 };
 

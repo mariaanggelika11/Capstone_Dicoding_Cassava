@@ -14,7 +14,6 @@
     "babel-preset-react-app": "^10.0.1",
     "bootstrap": "^5.3.3",
     "bulma": "^0.9.4",
-    "jquery": "^3.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
