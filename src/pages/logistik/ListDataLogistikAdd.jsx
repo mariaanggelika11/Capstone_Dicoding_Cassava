@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../Layout";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { getMe } from "../../features/authSlice";
 import axios from "axios";
 
@@ -62,166 +62,168 @@ const ListDataLogistikAdd = () => {
     }, [isError, user, navigate]);
 
     return (
-        <Layout>
-            <h1 className="title">Tambah Data Logistik</h1>
-            <div className="card is-shadowless">
-                <div className="card-content">
-                    <div className="content">
-                        <form onSubmit={saveLogistik}>
-                            <p className="has-text-centered">{msg}</p>
+<>
+<style jsx>{`
+      body{
+        padding-top: 80px;
+      }
+       `}</style>
 
-                            {/* Here goes the form fields */}
-                            <div className="field">
-                                <label className="label">Tanggal Waktu Pengiriman</label>
-                                <div className="control">
-                                    <input
-                                        type="datetime-local"
-                                        className="input"
-                                        value={tanggalWaktuPengiriman}
-                                        onChange={(e) => setTanggalWaktuPengiriman(e.target.value)}
-                                    />
-                                </div>
-                            </div>
+<Layout>
+    <h4 className="gradient-text fw-bold">Tambah Data Logistik</h4>
+    <div className="card shadow mb-3">
+        <div className="card-body">
+            <form onSubmit={saveLogistik}>
+                <p className="text-center">{msg}</p>
 
-                            <div className="field">
-                                <label className="label">Asal</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={asal}
-                                        onChange={(e) => setAsal(e.target.value)}
-                                        placeholder="Asal"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="field">
-                                <label className="label">Tujuan</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={tujuan}
-                                        onChange={(e) => setTujuan(e.target.value)}
-                                        placeholder="Tujuan"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="field">
-                                <label className="label">Estimasi Waktu Tiba</label>
-                                <div className="control">
-                                    <input
-                                        type="datetime-local"
-                                        className="input"
-                                        value={estimasiWaktuTiba}
-                                        onChange={(e) => setEstimasiWaktuTiba(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="field">
-                                <label className="label">Nomor Polisi Kendaraan</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={nomorPolisiKendaraan}
-                                        onChange={(e) => setNomorPolisiKendaraan(e.target.value)}
-                                        placeholder="Nomor Polisi Kendaraan"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="field">
-                                <label className="label">Jenis Kendaraan</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={jenisKendaraan}
-                                        onChange={(e) => setJenisKendaraan(e.target.value)}
-                                        placeholder="Jenis Kendaraan"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="field">
-                                <label className="label">Kapasitas Angkut (kg)</label>
-                                <div className="control">
-                                    <input
-                                        type="number"
-                                        className="input"
-                                        value={kapasitasAngkut}
-                                        onChange={(e) => setKapasitasAngkut(e.target.value)}
-                                        placeholder="Kapasitas Angkut"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="field">
-                                <label className="label">Biaya Transportasi (Rp)</label>
-                                <div className="control">
-                                    <input
-                                        type="number"
-                                        className="input"
-                                        value={biayaTransportasi}
-                                        onChange={(e) => setBiayaTransportasi(e.target.value)}
-                                        placeholder="Biaya Transportasi"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="field">
-                                <label className="label">Catatan Efisiensi Rute</label>
-                                <div className="control">
-                                    <textarea
-                                        className="textarea"
-                                        value={catatanEfisiensiRute}
-                                        onChange={(e) => setCatatanEfisiensiRute(e.target.value)}
-                                        placeholder="Catatan Efisiensi Rute"
-                                    ></textarea>
-                                </div>
-                            </div>
-
-                            <div className="field">
-                                <label className="label">Kondisi Pengiriman</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={kondisiPengiriman}
-                                        onChange={(e) => setKondisiPengiriman(e.target.value)}
-                                        placeholder="Kondisi Pengiriman"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="field">
-                                <label className="label">Catatan Dari Penerima</label>
-                                <div className="control">
-                                    <textarea
-                                        className="textarea"
-                                        value={catatanDariPenerima}
-                                        onChange={(e) => setCatatanDariPenerima(e.target.value)}
-                                        placeholder="Catatan Dari Penerima"
-                                    ></textarea>
-                                </div>
-                            </div>
-
-                            <div className="field">
-                                <div className="control">
-                                    <button type="submit" className="button is-success">
-                                        Simpan
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                {/* Form fields */}
+                <div className="row mb-3">
+                    <label className="col-md-3 col-form-label">Tanggal Waktu Pengiriman</label>
+                    <div className="col-md-9">
+                        <input
+                            type="datetime-local"
+                            className="form-control"
+                            value={tanggalWaktuPengiriman}
+                            onChange={(e) => setTanggalWaktuPengiriman(e.target.value)}
+                        />
                     </div>
                 </div>
-            </div>
-        </Layout>
+
+                <div className="row mb-3">
+                    <label className="col-md-3 col-form-label">Asal</label>
+                    <div className="col-md-9">
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={asal}
+                            onChange={(e) => setAsal(e.target.value)}
+                            placeholder="Asal"
+                        />
+                    </div>
+                </div>
+
+                <div className="row mb-3">
+                    <label className="col-md-3 col-form-label">Tujuan</label>
+                    <div className="col-md-9">
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={tujuan}
+                            onChange={(e) => setTujuan(e.target.value)}
+                            placeholder="Tujuan"
+                        />
+                    </div>
+                </div>
+
+                <div className="row mb-3">
+                    <label className="col-md-3 col-form-label">Estimasi Waktu Tiba</label>
+                    <div className="col-md-9">
+                        <input
+                            type="datetime-local"
+                            className="form-control"
+                            value={estimasiWaktuTiba}
+                            onChange={(e) => setEstimasiWaktuTiba(e.target.value)}
+                        />
+                    </div>
+                </div>
+
+                <div className="row mb-3">
+                    <label className="col-md-3 col-form-label">Nomor Polisi Kendaraan</label>
+                    <div className="col-md-9">
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={nomorPolisiKendaraan}
+                            onChange={(e) => setNomorPolisiKendaraan(e.target.value)}
+                            placeholder="Nomor Polisi Kendaraan"
+                        />
+                    </div>
+                </div>
+
+                <div className="row mb-3">
+                    <label className="col-md-3 col-form-label">Jenis Kendaraan</label>
+                    <div className="col-md-9">
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={jenisKendaraan}
+                            onChange={(e) => setJenisKendaraan(e.target.value)}
+                            placeholder="Jenis Kendaraan"
+                        />
+                    </div>
+                </div>
+
+                <div className="row mb-3">
+                    <label className="col-md-3 col-form-label">Kapasitas Angkut (kg)</label>
+                    <div className="col-md-9">
+                        <input
+                            type="number"
+                            className="form-control"
+                            value={kapasitasAngkut}
+                            onChange={(e) => setKapasitasAngkut(e.target.value)}
+                            placeholder="Kapasitas Angkut"
+                        />
+                    </div>
+                </div>
+
+                <div className="row mb-3">
+                    <label className="col-md-3 col-form-label">Biaya Transportasi (Rp)</label>
+                    <div className="col-md-9">
+                        <input
+                            type="number"
+                            className="form-control"
+                            value={biayaTransportasi}
+                            onChange={(e) => setBiayaTransportasi(e.target.value)}
+                            placeholder="Biaya Transportasi"
+                        />
+                    </div>
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Catatan Efisiensi Rute</label>
+                    <textarea
+                        className="form-control"
+                        value={catatanEfisiensiRute}
+                        onChange={(e) => setCatatanEfisiensiRute(e.target.value)}
+                        placeholder="Catatan Efisiensi Rute"
+                    ></textarea>
+                </div>
+
+                <div className="row mb-3">
+                    <label className="col-md-3 col-form-label">Kondisi Pengiriman</label>
+                    <div className="col-md-9">
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={kondisiPengiriman}
+                            onChange={(e) => setKondisiPengiriman(e.target.value)}
+                            placeholder="Kondisi Pengiriman"
+                        />
+                    </div>
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Catatan Dari Penerima</label>
+                    <textarea
+                        className="form-control"
+                        value={catatanDariPenerima}
+                        onChange={(e) => setCatatanDariPenerima(e.target.value)}
+                        placeholder="Catatan Dari Penerima"
+                    ></textarea>
+                </div>
+
+                <div className="btn-group">
+                    <button type="submit" className="btn btn-success btn-sm">
+                        Simpan
+                    </button>
+                <Link to={'/data-logistik'} className="btn btn-info btn-sm">Kembali</Link>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</Layout>
+</>
     );
 };
 
