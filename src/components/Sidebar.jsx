@@ -17,7 +17,7 @@ const Sidebar = () => {
 
   return (
     <div>
-    <aside className="p-2">
+    <aside className="p-3">
       <p className="fw-bold gradient-text">General</p>
       <ul className="list-unstyled">
         <li className="mb-2">

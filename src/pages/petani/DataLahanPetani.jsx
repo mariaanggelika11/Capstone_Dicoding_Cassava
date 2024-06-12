@@ -78,68 +78,88 @@ const DataLahanPetani = () => {
 
 
     return (
-        <Layout>
-            <div>
-                <h1 className="title">Data Lahan Petani</h1>
-                <Link to="/datalahan/add" className="button is-primary mb-2">
-                    Add New
-                </Link>
-                {userData.length ? (
-                    userData.map((data, index) => (
-                        <div key={index} >
-                            <div className="card px-6 my-6">
-                                {user && (userAuth?.role === "admin") && (
-                                    <div>
-                                        <h1 className=" is-size-3 has-text-weight-bold">Nama Petani: {data.user.name}</h1>
-                                        <h1 className=" is-size-3 has-text-weight-bold">Email Petani: {data.user.email}</h1>
+<>
+    <style jsx>{`
+      body{
+        padding-top: 80px;
+      }
+       `}</style>
+
+<Layout>
+    <div className="container">
+        <h4 className="gradient-text fw-bold">Data Lahan Petani</h4>
+        <Link to="/datalahan/add" className="btn btn-primary btn-sm mb-3">
+            Add New
+        </Link>
+        {userData.length > 0 ? (
+            <div className="row" style={{ fontSize: "0.9rem" }}>
+                {userData.map((data, index) => (
+                    <div key={index} className="col-md-6 mb-3">
+                        <div className="card shadow">
+                            <div className="card-body p-3">
+                                {user && userAuth?.role === "admin" && (
+                                    <div className="mb-2">
+                                        <h5 className="card-title gradient-text mb-1">Nama Petani: {data.user.name}</h5>
+                                        <h5 className="card-title gradient-text mb-1">Email Petani: {data.user.email}</h5>
                                     </div>
                                 )}
+                                <div className="mb-2">
+                                    <div className="border p-3 mb-3">
+                                        <h5 className="card-title gradient-text fw-bold">Informasi Lahan</h5>
+                                        <p className="mb-1"><strong className="gradient-text">ID Blockchain:</strong> {data.idlahan}</p>
+                                        <p className="mb-1"><strong className="gradient-text">Lokasi Lahan:</strong> {data.lokasilahan}</p>
+                                        <p className="mb-1"><strong className="gradient-text">Luas Lahan:</strong> {data.luaslahan}</p>
+                                        <p className="mb-1"><strong className="gradient-text">Status Lahan:</strong> {data.statuskepemilikanlahan}</p>
+                                    </div>
 
-                                <h1 className=" is-size-3 has-text-weight-bold mb-3 mt-6">1. Informasi Lahan</h1>
-                                <p><strong> ID Blockchain:</strong> {data.idlahan}</p>
-                                <p><strong> Lokasi Lahan:</strong> {data.lokasilahan}</p>
-                                <p><strong> Luas Lahan: </strong>{data.luaslahan}</p>
-                                <p><strong> Status Lahan:</strong> {data.statuskepemilikanlahan}</p>
-                                <h1 className="is-size-3 has-text-weight-bold my-4">2. Data Produksi</h1>
-                                <p><strong>Periode Tanam Mulai:</strong>  {data.periodeTanamMulai}</p>
-                                <p><strong>Periode Tanam Selesai:</strong>  {data.periodeTanamSelesai}</p>
-                                <p><strong>Varietas:</strong> {data.varietassingkong}</p>
-                                <p><strong>Estimasi Produksi:</strong>  {data.estimasiproduksi}</p>
-                                <p><strong>Produksi Aktual:</strong>  {data.produksiaktual}</p>
-                                <h1 className="is-size-3 has-text-weight-bold my-4">3. Penggunaan Pupuk dan Pestisida</h1>
-                                <p><strong>Jenis Pupuk:</strong>  {data.jenispupuk}</p>
-                                <p><strong>Jumlah Pupuk:</strong>  {data.jumlahpupuk}</p>
-                                <h1 className="is-size-3 has-text-weight-bold my-4">4. Aspek Ekonomi</h1>
-                                <p><strong>Harga Jual:</strong>  {data.hargajual}</p>
-                                <p><strong>Total Pendapatan:</strong>  {data.totalpendapatan}</p>
-                                <p><strong>Pendapatan Bersih:</strong>  {data.pendapatanbersih}</p>
-                                <h1 className="is-size-3 has-text-weight-bold my-4 ">5. Tambahan</h1>
-                                <p className="pb-6"><strong>Catatan Tambahan: </strong> {data.catatantambahan}</p>
-                                {user && (userAuth?.role === "admin") && (
-                                    <div>
-                                        <Link
-                                            to={`/datalahan/edit/${data.id}`}
-                                            className="button is-small is-info my-5"
-                                        >
+                                    <div className="border p-3 mb-3">
+                                        <h5 className="card-title gradient-text fw-bold">Data Produksi</h5>
+                                        <p className="mb-1"><strong className="gradient-text">Periode Tanam Mulai:</strong> {data.periodeTanamMulai}</p>
+                                        <p className="mb-1"><strong className="gradient-text">Periode Tanam Selesai:</strong> {data.periodeTanamSelesai}</p>
+                                        <p className="mb-1"><strong className="gradient-text">Varietas:</strong> {data.varietassingkong}</p>
+                                        <p className="mb-1"><strong className="gradient-text">Estimasi Produksi:</strong> {data.estimasiproduksi}</p>
+                                        <p className="mb-1"><strong className="gradient-text">Produksi Aktual:</strong> {data.produksiaktual}</p>
+                                    </div>
+
+                                    <div className="border p-3 mb-3">
+                                        <h5 className="card-title gradient-text  fw-bold">Penggunaan Pupuk dan Pestisida</h5>
+                                        <p className="mb-1"><strong className="gradient-text">Jenis Pupuk:</strong> {data.jenispupuk}</p>
+                                        <p className="mb-1"><strong className="gradient-text">Jumlah Pupuk:</strong> {data.jumlahpupuk}</p>
+                                    </div>
+
+                                    <div className="border p-3 mb-3">
+                                        <h5 className="card-title gradient-text  fw-bold">Aspek Ekonomi</h5>
+                                        <p className="mb-1"><strong className="gradient-text">Harga Jual:</strong> {data.hargajual}</p>
+                                        <p className="mb-1"><strong className="gradient-text">Total Pendapatan:</strong> {data.totalpendapatan}</p>
+                                        <p className="mb-1"><strong className="gradient-text">Pendapatan Bersih:</strong> {data.pendapatanbersih}</p>
+                                    </div>
+
+                                    <div className="border p-3 mb-3">
+                                        <h5 className="card-title gradient-text  fw-bold">Tambahan</h5>
+                                        <p className="mb-1"><strong className="gradient-text">Catatan Tambahan:</strong> {data.catatantambahan}</p>
+                                    </div>
+                                </div>
+                                {user && userAuth?.role === "admin" && (
+                                    <div className="d-flex justify-content-end">
+                                        <Link to={`/datalahan/edit/${data.id}`} className="btn btn-info btn-sm mr-2">
                                             Edit
                                         </Link>
-                                        <button
-                                            onClick={() => deleteProduct(data.id)}
-                                            className="button is-small is-danger"
-                                        >
+                                        <button onClick={() => deleteProduct(data.id)} className="btn btn-danger btn-sm">
                                             Delete
                                         </button>
                                     </div>
                                 )}
-
                             </div>
                         </div>
-                    ))
-                ) : (
-                    <p>Loading user details...</p>
-                )}
+                    </div>
+                ))}
             </div>
-        </Layout>
+        ) : (
+            <p>Loading user details...</p>
+        )}
+    </div>
+</Layout>
+</>
     );
 };
 

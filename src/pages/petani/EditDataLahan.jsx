@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../Layout";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { getMe } from "../../features/authSlice";
 import axios from "axios";
 
@@ -96,206 +96,184 @@ const EditDataLahan = () => {
     }, [isError, user, navigate]);
 
     return (
-        <Layout>
-            <h1 className="title">Edit Data Lahan</h1>
-            <div className="card is-shadowless">
-                <div className="card-content">
-                    <div className="content">
-                        <form onSubmit={updateDataLahan}>
-                            <p className="has-text-centered">{msg}</p>
-                            {/* Lokasi Lahan */}
-                            <div className="field">
-                                <label className="label">Lokasi Lahan</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={lokasilahan}
-                                        onChange={(e) => setLokasiLahan(e.target.value)}
-                                        placeholder="Lokasi Lahan"
-                                    />
-                                </div>
-                            </div>
-                            {/* Luas Lahan */}
-                            <div className="field">
-                                <label className="label">Luas Lahan</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={luaslahan}
-                                        onChange={(e) => setLuasLahan(e.target.value)}
-                                        placeholder="Luas Lahan"
-                                    />
-                                </div>
-                            </div>
-                            {/* Status Kepemilikan Lahan */}
-                            <div className="field">
-                                <label className="label">Status Kepemilikan Lahan</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={statuskepemilikanlahan}
-                                        onChange={(e) => setStatusKepemilikanLahan(e.target.value)}
-                                        placeholder="Status Kepemilikan Lahan"
-                                    />
-                                </div>
-                            </div>
-                            {/* Periode Tanam Mulai */}
-                            <div className="field">
-                                <label className="label">Periode Tanam Mulai</label>
-                                <div className="control">
-                                    <input
-                                        type="date"
-                                        className="input"
-                                        value={periodeTanamMulai}
-                                        onChange={(e) => setPeriodeTanamMulai(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                            {/* Periode Tanam Selesai */}
-                            <div className="field">
-                                <label className="label">Periode Tanam Selesai</label>
-                                <div className="control">
-                                    <input
-                                        type="date"
-                                        className="input"
-                                        value={periodeTanamSelesai}
-                                        onChange={(e) => setPeriodeTanamSelesai(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                            {/* Varietas/Jenis Singkong */}
-                            <div className="field">
-                                <label className="label">Varietas/Jenis Singkong</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={varietassingkong}
-                                        onChange={(e) => setVarietasSingkong(e.target.value)}
-                                        placeholder="Varietas Singkong"
-                                    />
-                                </div>
-                            </div>
-                            {/* Estimasi Produksi */}
-                            <div className="field">
-                                <label className="label">Estimasi Produksi</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={estimasiproduksi}
-                                        onChange={(e) => setEstimasiProduksi(e.target.value)}
-                                        placeholder="Estimasi Produksi"
-                                    />
-                                </div>
-                            </div>
-                            {/* Produksi Aktual */}
-                            <div className="field">
-                                <label className="label">Produksi Aktual</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={produksiaktual}
-                                        onChange={(e) => setProduksiAktual(e.target.value)}
-                                        placeholder="Produksi Aktual"
-                                    />
-                                </div>
-                            </div>
-                            {/* Jenis Pupuk */}
-                            <div className="field">
-                                <label className="label">Jenis Pupuk</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={jenispupuk}
-                                        onChange={(e) => setJenisPupuk(e.target.value)}
-                                        placeholder="Jenis Pupuk"
-                                    />
-                                </div>
-                            </div>
-                            {/* Jumlah Pupuk */}
-                            <div className="field">
-                                <label className="label">Jumlah Pupuk</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={jumlahpupuk}
-                                        onChange={(e) => setJumlahPupuk(e.target.value)}
-                                        placeholder="Jumlah Pupuk"
-                                    />
-                                </div>
-                            </div>
-                            {/* Harga Jual */}
-                            <div className="field">
-                                <label className="label">Harga Jual</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={hargajual}
-                                        onChange={(e) => setHargaJual(e.target.value)}
-                                        placeholder="Harga Jual"
-                                    />
-                                </div>
-                            </div>
-                            {/* Total Pendapatan */}
-                            <div className="field">
-                                <label className="label">Total Pendapatan</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={totalpendapatan}
-                                        onChange={(e) => setTotalPendapatan(e.target.value)}
-                                        placeholder="Total Pendapatan"
-                                    />
-                                </div>
-                            </div>
-                            {/* Pendapatan Bersih */}
-                            <div className="field">
-                                <label className="label">Pendapatan Bersih</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={pendapatanbersih}
-                                        onChange={(e) => setPendapatanBersih(e.target.value)}
-                                        placeholder="Pendapatan Bersih"
-                                    />
-                                </div>
-                            </div>
-                            {/* Catatan Tambahan */}
-                            <div className="field">
-                                <label className="label">Catatan Tambahan</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={catatantambahan}
-                                        onChange={(e) => setCatatanTambahan(e.target.value)}
-                                        placeholder="Catatan Tambahan"
-                                    />
-                                </div>
-                            </div>
+<>
+<style jsx>{`
+      body{
+        padding-top: 80px;
+      }
+`}</style>
 
-                            <div className="field">
-                                <div className="control">
-                                    <button type="submit" className="button is-success">
-                                        Update
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+<Layout>
+<h3 className="gradient-text fw-bold">Edit Data Lahan</h3>
+    <div className="card shadow-sm mb-3" style={{ fontSize: "14px" }}>
+        <div className="card-body">
+            <div className="content">
+                <form onSubmit={updateDataLahan}>
+                    <p className="text-center text-danger">{msg}</p>
+                    <div className="row">
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Lokasi Lahan</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={lokasilahan}
+                                onChange={(e) => setLokasiLahan(e.target.value)}
+                                placeholder="Lokasi Lahan"
+                            />
+                        </div>
+
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Luas Lahan</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={luaslahan}
+                                onChange={(e) => setLuasLahan(e.target.value)}
+                                placeholder="Luas Lahan"
+                            />
+                        </div>
+
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Status Kepemilikan Lahan</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={statuskepemilikanlahan}
+                                onChange={(e) => setStatusKepemilikanLahan(e.target.value)}
+                                placeholder="Status Kepemilikan Lahan"
+                            />
+                        </div>
+
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Periode Tanam Mulai</label>
+                            <input
+                                type="date"
+                                className="form-control"
+                                value={periodeTanamMulai}
+                                onChange={(e) => setPeriodeTanamMulai(e.target.value)}
+                            />
+                        </div>
+
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Periode Tanam Selesai</label>
+                            <input
+                                type="date"
+                                className="form-control"
+                                value={periodeTanamSelesai}
+                                onChange={(e) => setPeriodeTanamSelesai(e.target.value)}
+                            />
+                        </div>
+
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Varietas/Jenis Singkong</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={varietassingkong}
+                                onChange={(e) => setVarietasSingkong(e.target.value)}
+                                placeholder="Varietas Singkong"
+                            />
+                        </div>
+
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Estimasi Produksi</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={estimasiproduksi}
+                                onChange={(e) => setEstimasiProduksi(e.target.value)}
+                                placeholder="Estimasi Produksi"
+                            />
+                        </div>
+
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Produksi Aktual</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={produksiaktual}
+                                onChange={(e) => setProduksiAktual(e.target.value)}
+                                placeholder="Produksi Aktual"
+                            />
+                        </div>
+
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Jenis Pupuk</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={jenispupuk}
+                                onChange={(e) => setJenisPupuk(e.target.value)}
+                                placeholder="Jenis Pupuk"
+                            />
+                        </div>
+
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Jumlah Pupuk</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={jumlahpupuk}
+                                onChange={(e) => setJumlahPupuk(e.target.value)}
+                                placeholder="Jumlah Pupuk"
+                            />
+                        </div>
+
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Harga Jual</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={hargajual}
+                                onChange={(e) => setHargaJual(e.target.value)}
+                                placeholder="Harga Jual"
+                            />
+                        </div>
+
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Total Pendapatan</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={totalpendapatan}
+                                onChange={(e) => setTotalPendapatan(e.target.value)}
+                                placeholder="Total Pendapatan"
+                            />
+                        </div>
+
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Pendapatan Bersih</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={pendapatanbersih}
+                                onChange={(e) => setPendapatanBersih(e.target.value)}
+                                placeholder="Pendapatan Bersih"
+                            />
+                        </div>
+
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Catatan Tambahan</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={catatantambahan}
+                                onChange={(e) => setCatatanTambahan(e.target.value)}
+                                placeholder="Catatan Tambahan"
+                            />
+                        </div>
+
+                        <div className="btn-group col-2">
+                            <button type="submit" className="btn btn-success btn-sm">Update</button>
+                            <Link to={'/datalahan'} className="btn btn-info btn-sm">Kembali</Link>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
-        </Layout>
+        </div>
+    </div>
+</Layout>
+</>
     );
 };
 

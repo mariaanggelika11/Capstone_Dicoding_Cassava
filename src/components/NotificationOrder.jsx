@@ -19,7 +19,7 @@ const NotificationOrder = () => {
         <div className="container">
             <div className="card">
                 <div className="card-header">
-                    <h2 class="gradient-text">Order Status</h2>
+                    <h2 className="gradient-text">Order Status</h2>
                 </div>
                 <div className="card-body">
                     <table className="table table-sm table-hover">

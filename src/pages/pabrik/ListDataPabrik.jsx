@@ -52,47 +52,61 @@ const ListDataPabrik = () => {
     };
 
     return (
-        <Layout>
-            <div>
-                <h1 className="title">Data Pabrik</h1>
-                <Link to="/data-pabrik/add" className="button is-primary mb-2">
-                    Tambah Data Baru
-                </Link>
-                {dataPabrik.length > 0 ? (
-                    dataPabrik.map(pabrik => (
-                        <div key={pabrik.id} className="card px-6 my-6">
-                            {user && (user.role === "admin") && (
-                                <div>
-                                    <h1 className=" is-size-3 has-text-weight-bold">Nama Petani: {pabrik.user.name}</h1>
-                                    <h1 className=" is-size-3 has-text-weight-bold">Email Petani: {pabrik.user.email}</h1>
-                                </div>
-                            )}
-                            <div>
-                                <p><strong>ID Pengiriman:</strong> {pabrik.idPengiriman}</p>
-                                <p><strong>Tanggal Penerimaan:</strong> {pabrik.tanggalPenerimaan}</p>
-                                <p><strong>Berat Total Diterima:</strong> {pabrik.beratTotalDiterima} kg</p>
-                                <p><strong>Evaluasi Kualitas:</strong> {pabrik.evaluasiKualitas}</p>
-                                <p><strong>Catatan Kualitas:</strong> {pabrik.catatanKualitas}</p>
-                                <p><strong>Kapasitas Produksi:</strong> {pabrik.kapasitasProduksi} kg</p>
-                                <p><strong>Produksi Harian Tapioka:</strong> {pabrik.produksiHarianTapioka} kg</p>
-                                <p><strong>Kualitas Output:</strong> {pabrik.kualitasOutput}</p>
-                                <p><strong>Permasalahan Operasional:</strong> {pabrik.permasalahanOperasional}</p>
-                                <p><strong>Kebutuhan Perbaikan:</strong> {pabrik.kebutuhanPerbaikan}</p>
-                            </div>
-                            {user && (user.role === "admin") && (
-                                <div className="buttons">
-                                    <Link to={`/data-pabrik/edit/${pabrik.id}`} className="button is-info is-small">Edit</Link>
-                                    <button onClick={() => deleteDataPabrik(pabrik.id)} className="button is-danger is-small">Hapus</button>
-                                </div>
-                            )}
+<>
+    <style jsx>{`
+      body{
+        padding-top: 80px;
+      }
+       `}</style>
 
+
+    <Layout>
+    <div className="container">
+        <h1 className="gradient-text fw-bold">Data Pabrik</h1>
+        <Link to="/data-pabrik/add" className="btn btn-primary btn-sm mb-3">
+            Tambah Data Baru
+        </Link>
+        {dataPabrik.length > 0 ? (
+            <div className="row">
+                {dataPabrik.map(pabrik => (
+                    <div key={pabrik.id} className="col-md-6 mb-3">
+                        <div className="card">
+                            <div className="card-body p-3">
+                                {user && user.role === "admin" && (
+                                    <div className="mb-2">
+                                        <h5 className="card-title gradient-text mb-1">Nama Petani: {pabrik.user.name}</h5>
+                                        <h5 className="card-title gradient-text mb-1">Email Petani: {pabrik.user.email}</h5>
+                                    </div>
+                                )}
+                                <div className="mb-2" style={{ fontSize: "14px" }}>
+                                    <p className="mb-1"><strong className="gradient-text">ID Pengiriman:</strong> {pabrik.idPengiriman}</p>
+                                    <p className="mb-1"><strong className="gradient-text">Tanggal Penerimaan:</strong> {pabrik.tanggalPenerimaan}</p>
+                                    <p className="mb-1"><strong className="gradient-text">Berat Total Diterima:</strong> {pabrik.beratTotalDiterima} kg</p>
+                                    <p className="mb-1"><strong className="gradient-text">Evaluasi Kualitas:</strong> {pabrik.evaluasiKualitas}</p>
+                                    <p className="mb-1"><strong className="gradient-text">Catatan Kualitas:</strong> {pabrik.catatanKualitas}</p>
+                                    <p className="mb-1"><strong className="gradient-text">Kapasitas Produksi:</strong> {pabrik.kapasitasProduksi} kg</p>
+                                    <p className="mb-1"><strong className="gradient-text">Produksi Harian Tapioka:</strong> {pabrik.produksiHarianTapioka} kg</p>
+                                    <p className="mb-1"><strong className="gradient-text">Kualitas Output:</strong> {pabrik.kualitasOutput}</p>
+                                    <p className="mb-1"><strong className="gradient-text">Permasalahan Operasional:</strong> {pabrik.permasalahanOperasional}</p>
+                                    <p className="mb-1"><strong className="gradient-text">Kebutuhan Perbaikan:</strong> {pabrik.kebutuhanPerbaikan}</p>
+                                </div>
+                                {user && user.role === "admin" && (
+                                    <div className="justify-content-end d-flex">
+                                        <Link to={`/data-pabrik/edit/${pabrik.id}`} className="btn btn-info btn-sm mr-3">Edit</Link>
+                                        <button onClick={() => deleteDataPabrik(pabrik.id)} className="btn btn-danger btn-sm">Hapus</button>
+                                    </div>
+                                )}
+                            </div>
                         </div>
-                    ))
-                ) : (
-                    <p>Memuat data...</p>
-                )}
+                    </div>
+                ))}
             </div>
-        </Layout>
+        ) : (
+            <p>Memuat data...</p>
+        )}
+    </div>
+    </Layout>
+</>
     );
 };
 
