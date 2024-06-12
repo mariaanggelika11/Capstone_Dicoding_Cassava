@@ -24,49 +24,51 @@ const RoleList = () => {
   }, [user?.uuid]); // Tambahkan user?.uuid sebagai dependency untuk lebih aman
 
   return (
-    <div>
-      <h1 className="title">User Details</h1>
+  <>
+   <style jsx>{`
+      body{
+        padding-top: 80px;
+      }
+       `}</style>
+
+  <div className="container">
+      <h1 className="mb-4 gradient-text">User Details</h1>
       {userData ? (
-        <>
-          {userData.additionalInfo?.url && (
-            <img src={userData.additionalInfo.url} alt={userData.name} style={{ maxWidth: '10%', height: '10%' }} />
-          )}
-          <p>ID Blockchain: {userData.uuid}</p>
-          <p>Nama: {userData.name}</p>
-          <p>Email: {userData.email}</p>
-          <p>Nomor HP: {userData.additionalInfo.nohp}</p>
-          <p>Alamat: {userData.additionalInfo.alamat}</p>
+          <>
+              {userData.additionalInfo?.url && (
+                  <div className="mb-3">
+                      <img src={userData.additionalInfo.url} alt={userData.name} className="img-thumbnail" style={{ maxWidth: '150px' }} />
+                  </div>
+              )}
+              <ul className="list-group mb-4">
+                  <li className="list-group-item"><strong>ID Blockchain:</strong> {userData.uuid}</li>
+                  <li className="list-group-item"><strong>Nama:</strong> {userData.name}</li>
+                  <li className="list-group-item"><strong>Email:</strong> {userData.email}</li>
+                  <li className="list-group-item"><strong>Nomor HP:</strong> {userData.additionalInfo.nohp}</li>
+                  <li className="list-group-item"><strong>Alamat:</strong> {userData.additionalInfo.alamat}</li>
+              </ul>
 
-          {user && (userData.role === "petani") && (
-            <Link
-              to={`/datapetani/edit/${userData.uuid}`}
-              className="button is-small is-info mt-5"
-            >
-              Edit {userData.role}
-            </Link>
-          )}
-          {user && (userData.role === "pabrik") && (
-            <Link
-              to={`/datapabrik/edit/${userData.uuid}`}
-              className="button is-small is-info mt-5"
-            >
-              Edit {userData.role}
-            </Link>
-          )}
-          {user && (userData.role === "logistik") && (
-            <Link
-              to={`/datalogistik/edit/${userData.uuid}`}
-              className="button is-small is-info mt-5"
-            >
-              Edit {userData.role}
-            </Link>
-          )}
-
-        </>
+              {user && userData.role === "petani" && (
+                  <Link to={`/datapetani/edit/${userData.uuid}`} className="btn btn-info btn-sm mb-3">
+                      Edit {userData.role}
+                  </Link>
+              )}
+              {user && userData.role === "pabrik" && (
+                  <Link to={`/datapabrik/edit/${userData.uuid}`} className="btn btn-info btn-sm mb-3">
+                      Edit {userData.role}
+                  </Link>
+              )}
+              {user && userData.role === "logistik" && (
+                  <Link to={`/datalogistik/edit/${userData.uuid}`} className="btn btn-info btn-sm mb-3">
+                      Edit {userData.role}
+                  </Link>
+              )}
+          </>
       ) : (
-        <p>Loading user details...</p>
+          <p>Loading user details...</p>
       )}
-    </div>
+  </div>
+  </>
   );
 };
 

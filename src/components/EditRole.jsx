@@ -63,85 +63,79 @@ const EditRole = () => {
     };
 
     return (
-        <div>
-            <h1 className="title">Update Role: {role}</h1>
-            <div className="card is-shadowless">
-                <div className="card-content">
-                    <div className="content">
-                        <form onSubmit={updateUser}>
-                            <p className="has-text-centered">{msg}</p>
-                            <div className="field">
-                                <label className="label">Name</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        placeholder="Name"
-                                    />
-                                </div>
-                            </div>
-                            <div className="field">
-                                <label className="label">Email</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        placeholder="Email"
-                                        disabled
-                                    />
-                                </div>
-                            </div>
-                            <div className="field">
-                                <label className="label">Nomor HP</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={nohp}
-                                        onChange={(e) => setNohp(e.target.value)}
-                                        placeholder="Nomor HP"
-                                    />
-                                </div>
-                            </div>
-                            <div className="field">
-                                <label className="label">Alamat</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        value={alamat}
-                                        onChange={(e) => setAlamat(e.target.value)}
-                                        placeholder="Alamat"
-                                    />
-                                </div>
-                            </div>
-                            <div className="field">
-                                <label className="label">Foto</label>
-                                <div className="control">
-                                    <input
-                                        type="file"
-                                        className="input"
-                                        onChange={handleFileChange}
-                                        placeholder="Foto"
-                                    />
-                                </div>
-                            </div>
-                            <div className="field">
-                                <div className="control">
-                                    <button type="submit" className="button is-success">
-                                        Update
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+    <>
+<style jsx>{`
+      body{
+        padding-top: 80px;
+      }
+       `}</style>
+
+        <div className="container">
+            <h1 className="text-center mb-4 gradient-text">Update Role: {role}</h1>
+            <div className="card shadow">
+                <div className="card-body">
+                    <form onSubmit={updateUser}>
+                        {msg && <p className="text-center text-danger">{msg}</p>}
+                        <div className="mb-3">
+                            <label className="form-label">Name</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Name"
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Email</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Email"
+                                disabled
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Nomor HP</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={nohp}
+                                onChange={(e) => setNohp(e.target.value)}
+                                placeholder="Nomor HP"
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Alamat</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={alamat}
+                                onChange={(e) => setAlamat(e.target.value)}
+                                placeholder="Alamat"
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Foto</label>
+                            <input
+                                type="file"
+                                className="form-control"
+                                onChange={handleFileChange}
+                                placeholder="Foto"
+                            />
+                        </div>
+                        <div className="d-grid">
+                            <button type="submit" className="btn btn-success">
+                                Update
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </>
     );
 };
 
