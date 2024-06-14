@@ -19,7 +19,7 @@ const ListDataLogistik = () => {
         if (user?.uuid) {
             const fetchData = async () => {
                 try {
-                    const response = await axios.get(`http://localhost:5000/users/${user.uuid}`);
+                    const response = await axios.get(`https://c-greenproject.org:8000/users/${user.uuid}`);
                     setUserAuth(response.data);
                 } catch (error) {
                     console.error("Error fetching data:", error);
@@ -33,7 +33,7 @@ const ListDataLogistik = () => {
         if (user?.uuid) {
             const fetchData = async () => {
                 try {
-                    const response = await axios.get(`http://localhost:5000/logistik`);
+                    const response = await axios.get(`https://c-greenproject.org:8000/logistik`);
                     setUserData(response.data);
                 } catch (error) {
                     console.error("Error fetching data:", error);
@@ -61,7 +61,7 @@ const ListDataLogistik = () => {
         // Tampilkan dialog konfirmasi penghapusan
         if (window.confirm("Apakah Anda yakin ingin menghapus data ini?")) {
             try {
-                await axios.delete(`http://localhost:5000/logistik/${id}`);
+                await axios.delete(`https://c-greenproject.org:8000/logistik/${id}`);
                 const updatedUserData = userData.filter(data => data.id !== id);
                 setUserData(updatedUserData);
                 alert("Data berhasil dihapus.");

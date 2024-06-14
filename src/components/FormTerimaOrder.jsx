@@ -20,7 +20,7 @@ const FormTerimaOrder = () => {
   useEffect(() => {
     const getProductById = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/products/${id}`);
+        const response = await axios.get(`https://c-greenproject.org:8000/products/${id}`);
         setNamaPerusahaan(response.data.namaPerusahaan);
         setNoHpPerusahaan(response.data.noHpPerusahaan);
         setStatusOrder(response.data.statusOrder);
@@ -39,7 +39,7 @@ const FormTerimaOrder = () => {
   const updateProduct = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/products/${id}`, {
+      await axios.patch(`https://c-greenproject.org:8000/products/${id}`, {
         namaPerusahaan: namaPerusahaan,
         noHpPerusahaan: noHpPerusahaan,
         statusOrder: statusOrder,

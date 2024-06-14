@@ -17,7 +17,7 @@ const Search = () => {
         setLoading(true);
 
         try {
-            const response = await axios.get(`http://localhost:5000/search/${searchId}`);
+            const response = await axios.get(`https://c-greenproject.org:8000/search/${searchId}`);
             setSearchResults([response.data]); // Menyimpan hasil dalam array untuk memudahkan rendering
             setLoading(false);
         } catch (err) {
