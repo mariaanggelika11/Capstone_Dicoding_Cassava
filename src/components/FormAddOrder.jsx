@@ -14,7 +14,7 @@ const FormAddProduct = () => {
   const saveProduct = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://c-greenproject.org:8000/products", {
+      await axios.post("http://localhost:5000/products", {
         tanggalPemanenan: tanggalPemanenan,
         varietasSingkong: varietasSingkong,
         estimasiBerat: estimasiBerat,

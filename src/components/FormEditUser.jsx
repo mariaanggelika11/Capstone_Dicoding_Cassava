@@ -16,7 +16,7 @@ const FormEditUser = () => {
   useEffect(() => {
     const getUserById = async () => {
       try {
-        const response = await axios.get(`https://c-greenproject.org:8000/users/${id}`);
+        const response = await axios.get(`http://localhost:5000/users/${id}`);
         setName(response.data.name);
         setEmail(response.data.email);
         setRole(response.data.role);
@@ -32,7 +32,7 @@ const FormEditUser = () => {
   const updateUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`https://c-greenproject.org:8000/users/${id}`, {
+      await axios.patch(`http://localhost:5000/users/${id}`, {
         name: name,
         email: email,
         password: password,

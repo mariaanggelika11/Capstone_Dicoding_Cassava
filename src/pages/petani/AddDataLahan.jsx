@@ -31,7 +31,7 @@ const AddDataLahan = () => {
     const saveProduct = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("https://c-greenproject.org:8000/petani", {
+            await axios.post("http://localhost:5000/petani", {
                 lokasilahan,
                 luaslahan,
                 statuskepemilikanlahan,

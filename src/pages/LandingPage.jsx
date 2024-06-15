@@ -124,7 +124,7 @@ const LandingPage = () => {
                 <a className="nav-link" href="#contact">CONTACT</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/tracebility">TRACEBILITY</a>
+                <a className="nav-link" href="#tracebility">TRACEBILITY</a>
               </li>
             </ul>
           </div>
@@ -202,12 +202,12 @@ const LandingPage = () => {
       </section>
 
 
-      <section id="cta" className="cta mb-3">
+      <section id="tracebility" className="cta mb-3" >
         <div className="cta-content" data-aos="zoom-in">
           <div className="text-center">
             <h3>Ingin men - tracing produk CPO anda?</h3>
             <p>Silahkan meng - klik dibawah ini</p>
-            <NavLink className="cta-btn scrollto" style={{ textDecoration: 'none' }}  to="">Trace CPO Anda!</NavLink>
+            <NavLink className="cta-btn scrollto" style={{ textDecoration: 'none' }}  to="/tracebility">Trace CPO Anda!</NavLink>
           </div>
       </div>
      </section>

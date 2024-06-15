@@ -32,7 +32,7 @@ const EditDataLahan = () => {
     useEffect(() => {
         const fetchDataLahan = async () => {
             try {
-                const response = await axios.get(`https://c-greenproject.org:8000/petani/${id}`);
+                const response = await axios.get(`http://localhost:5000/petani/${id}`);
                 const data = response.data;
                 setLokasiLahan(data.lokasilahan);
                 setLuasLahan(data.luaslahan);
@@ -60,7 +60,7 @@ const EditDataLahan = () => {
     const updateDataLahan = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`https://c-greenproject.org:8000/petani/${id}`, {
+            await axios.put(`http://localhost:5000/petani/${id}`, {
                 lokasilahan,
                 luaslahan,
                 statuskepemilikanlahan,

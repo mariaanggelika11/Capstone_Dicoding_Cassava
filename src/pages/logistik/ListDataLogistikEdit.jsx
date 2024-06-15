@@ -28,7 +28,7 @@ const ListDataLogistikEdit = () => {
     useEffect(() => {
         const fetchLogistikData = async () => {
             try {
-                const response = await axios.get(`https://c-greenproject.org:8000/logistik/${id}`);
+                const response = await axios.get(`http://localhost:5000/logistik/${id}`);
                 const data = response.data;
                 setTanggalWaktuPengiriman(data.tanggalWaktuPengiriman.split(".")[0]);
                 setAsal(data.asal);
@@ -52,7 +52,7 @@ const ListDataLogistikEdit = () => {
     const updateLogistikData = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`https://c-greenproject.org:8000/logistik/${id}`, {
+            await axios.put(`http://localhost:5000/logistik/${id}`, {
                 tanggalWaktuPengiriman,
                 asal,
                 tujuan,

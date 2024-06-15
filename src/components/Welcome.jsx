@@ -12,7 +12,7 @@ const Welcome = () => {
       const fetchData = async () => {
         try {
           // Lakukan permintaan GET ke endpoint
-          const response = await axios.get(`https://c-greenproject.org:8000/users/${user.uuid}`);
+          const response = await axios.get(`http://localhost:5000/users/${user.uuid}`);
           console.log(response.data)
           // Simpan data ke state
           setUserData(response.data);

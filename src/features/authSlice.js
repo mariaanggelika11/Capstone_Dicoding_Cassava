@@ -13,13 +13,10 @@ export const LoginUser = createAsyncThunk(
   'user/LoginUser',
   async (user, thunkAPI) => {
     try {
-      const response = await axios.post(
-        'https://c-greenproject.org:8000/login',
-        {
-          email: user.email,
-          password: user.password
-        }
-      );
+      const response = await axios.post('http://localhost:5000/login', {
+        email: user.email,
+        password: user.password
+      });
       return response.data;
     } catch (error) {
       if (error.response) {
@@ -32,7 +29,7 @@ export const LoginUser = createAsyncThunk(
 
 export const getMe = createAsyncThunk('user/getMe', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('https://c-greenproject.org:8000/me');
+    const response = await axios.get('http://localhost:5000/me');
     return response.data;
   } catch (error) {
     if (error.response) {
@@ -43,7 +40,7 @@ export const getMe = createAsyncThunk('user/getMe', async (_, thunkAPI) => {
 });
 
 export const LogOut = createAsyncThunk('user/LogOut', async () => {
-  await axios.delete('https://c-greenproject.org:8000/logout');
+  await axios.delete('http://localhost:5000/logout');
 });
 
 export const authSlice = createSlice({
