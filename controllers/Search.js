@@ -6,6 +6,8 @@ import PabrikUser from "../models/PabrikUserModel.js";
 import PetaniUser from "../models/PetaniUserModel.js";
 import OrderPemanen from "../models/OrderPemanenModel.js";
 import User from "../models/UserModel.js";
+import DataPerusahaan from "../models/DataPerusahaanModel.js";
+import PerusahaanUsers from "../models/PerusahaanUserModel.js";
 
 export const searchById = async (req, res) => {
   try {
@@ -18,7 +20,15 @@ export const searchById = async (req, res) => {
     });
 
     if (!result) {
-      // Jika tidak ditemukan di Pabrik, cari di Petani
+      // Jika tidak ditemukan di Pabrik, cari di Perusahaan
+      result = await DataPerusahaan.findOne({
+        where: { idharga: uuid },
+        include: [{ model: User, attributes: ["name", "email"] }],
+      });
+    }
+
+    if (!result) {
+      // Jika tidak ditemukan di Perusahaan, cari di Petani
       result = await DataPetani.findOne({
         where: { idlahan: uuid },
         include: [{ model: User, attributes: ["name", "email"] }],
@@ -26,7 +36,7 @@ export const searchById = async (req, res) => {
     }
 
     if (!result) {
-      // Jika tidak ditemukan di Pabrik, cari di Petani
+      // Jika tidak ditemukan di Perusahaan, cari di Petani
       result = await DataLogistik.findOne({
         where: { idPengiriman: uuid },
         include: [{ model: User, attributes: ["name", "email"] }],
@@ -39,6 +49,14 @@ export const searchById = async (req, res) => {
         where: { uuid: uuid },
       });
     }
+
+    if (!result) {
+      // Jika tidak ditemukan di Petani, cari di LogisticUser
+      result = await PerusahaanUsers.findOne({
+        where: { uuid: uuid },
+      });
+    }
+
     if (!result) {
       // Jika tidak ditemukan di Petani, cari di LogisticUser
       result = await OrderPemanen.findOne({

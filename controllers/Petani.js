@@ -2,19 +2,20 @@ import Petani from "../models/DataPetaniModel.js";
 import User from "../models/UserModel.js";
 import { Op } from "sequelize";
 
+// Fungsi untuk mendapatkan semua data petani
 export const getPetanis = async (req, res) => {
   try {
     let response;
-    if (req.role === "admin") {
-      // Jika pengguna adalah admin, ambil semua data petani
+    if (req.role === "admin" || req.role === "perusahaan") {
+      // Jika pengguna adalah admin atau perusahaan, ambil semua data petani
       response = await Petani.findAll({
         include: [
           {
             model: User,
-            attributes: ["name", "email"], // Contoh atribut yang di-include dari User
+            attributes: ["name", "email"], // Informasi tambahan dari pengguna yang terkait
           },
         ],
-        order: [["updatedAt", "DESC"]],
+        order: [["updatedAt", "DESC"]], // Mengurutkan data berdasarkan updatedAt secara descending
       });
     } else if (req.role === "petani") {
       // Jika pengguna adalah petani, hanya ambil data yang dia buat
@@ -25,10 +26,10 @@ export const getPetanis = async (req, res) => {
         include: [
           {
             model: User,
-            attributes: ["name", "email"], // Asumsi Anda ingin menampilkan informasi ini
+            attributes: ["name", "email"], // Informasi tambahan dari pengguna yang terkait
           },
         ],
-        order: [["updatedAt", "DESC"]], // Menambahkan pengurutan berdasarkan updatedAt secara descending
+        order: [["updatedAt", "DESC"]], // Mengurutkan data berdasarkan updatedAt secara descending
       });
     } else {
       // Jika role pengguna tidak dikenali atau tidak diizinkan melihat data
@@ -41,6 +42,7 @@ export const getPetanis = async (req, res) => {
   }
 };
 
+// Fungsi untuk membuat data petani baru
 export const createPetani = async (req, res) => {
   try {
     // Asumsi: Data dari req.body sudah divalidasi
@@ -61,14 +63,14 @@ export const createPetani = async (req, res) => {
       pendapatanbersih,
     } = req.body;
 
-    // Memperbarui kondisi untuk memeriksa apakah role pengguna adalah 'petani' atau 'admin'
+    // Memeriksa apakah pengguna memiliki peran 'petani' atau 'admin'
     if (req.role !== "petani" && req.role !== "admin") {
       return res.status(403).json({ msg: "Hanya pengguna dengan role 'petani' atau 'admin' yang dapat membuat data petani." });
     }
 
     // Membuat entri baru di tabel petani
     const newPetani = await Petani.create({
-      userId: req.userId, // Asumsi: req.userId adalah ID pengguna yang sedang login
+      userId: req.userId, // Mengaitkan data petani dengan pengguna yang sedang login
       lokasilahan,
       luaslahan,
       statuskepemilikanlahan,
@@ -85,20 +87,21 @@ export const createPetani = async (req, res) => {
       pendapatanbersih,
     });
 
-    res.status(201).json({ newPetani, msg: "Product Created Successfuly" });
+    res.status(201).json({ newPetani, msg: "Product Created Successfully" });
   } catch (error) {
     console.error("Error saat membuat data petani:", error.message);
     res.status(500).json({ msg: error.message });
   }
 };
 
+// Fungsi untuk memperbarui data petani
 export const updatePetani = async (req, res) => {
   const { id } = req.params; // Asumsi ID data petani yang akan diupdate dikirim melalui parameter URL
   const { lokasilahan, luaslahan, statuskepemilikanlahan, periodeTanamMulai, periodeTanamSelesai, varietassingkong, estimasiproduksi, produksiaktual, catatantambahan, jenispupuk, jumlahpupuk, hargajual, totalpendapatan, pendapatanbersih } =
     req.body;
 
   try {
-    // Memastikan hanya pengguna dengan role 'petani' atau 'admin' yang bisa melakukan update
+    // Memastikan hanya pengguna dengan peran 'petani' atau 'admin' yang bisa melakukan update
     if (req.role !== "petani" && req.role !== "admin") {
       return res.status(403).json({ msg: "Hanya pengguna dengan role 'petani' atau 'admin' yang dapat mengupdate data petani." });
     }
@@ -136,6 +139,7 @@ export const updatePetani = async (req, res) => {
   }
 };
 
+// Fungsi untuk mendapatkan data petani berdasarkan ID
 export const getPetaniById = async (req, res) => {
   const { id } = req.params; // Mengambil ID dari parameter URL
 
@@ -173,11 +177,12 @@ export const getPetaniById = async (req, res) => {
   }
 };
 
+// Fungsi untuk menghapus data petani
 export const deletePetani = async (req, res) => {
   const { id } = req.params; // Mengambil ID dari parameter URL untuk menentukan data petani yang akan dihapus
 
   try {
-    // Memeriksa role pengguna, mengizinkan penghapusan hanya jika pengguna adalah admin
+    // Memeriksa peran pengguna, mengizinkan penghapusan hanya jika pengguna adalah admin
     if (req.role !== "admin") {
       return res.status(403).json({ msg: "Hanya admin yang dapat menghapus data petani." });
     }

@@ -5,11 +5,12 @@ import dotenv from "dotenv";
 import db from "./config/Database.js";
 import SequelizeStore from "connect-session-sequelize";
 import UserRoute from "./routes/UserRoute.js";
-import OrderPemanen from "./routes/OrderRoute.js";
+import OrderRoute from "./routes/OrderRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
 import PetaniRoute from "./routes/PetaniRoute.js";
 import LogistikRoute from "./routes/LogistikRoute.js";
 import PabrikRoute from "./routes/PabrikRoute.js";
+import PerusahaanRoute from "./routes/PerusahaanRoute.js";
 import SearchRoute from "./routes/SearchRoute.js";
 
 dotenv.config();
@@ -53,12 +54,13 @@ app.use(
 );
 app.use(express.json());
 app.use(UserRoute);
-app.use(OrderPemanen);
+app.use(OrderRoute);
 app.use(AuthRoute);
 app.use(PetaniRoute);
 app.use(LogistikRoute);
 app.use(PabrikRoute);
 app.use(SearchRoute);
+app.use(PerusahaanRoute);
 
 app.listen(process.env.APP_PORT, () => {
   console.log(`Server up and running... at http://localhost:${process.env.APP_PORT}`);

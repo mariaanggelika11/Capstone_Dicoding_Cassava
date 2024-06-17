@@ -1,4 +1,4 @@
-import User from "../models/DataPabrikModel.js";
+import User from "../models/UserModel.js";
 
 export const verifyUser = async (req, res, next) => {
   if (!req.session.userId) {

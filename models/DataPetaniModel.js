@@ -3,6 +3,7 @@ import db from "../config/Database.js";
 import Users from "./UserModel.js";
 
 const { DataTypes } = Sequelize;
+
 // Fungsi untuk menghasilkan string acak dengan panjang tertentu
 function generateRandomString(length) {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -14,56 +15,56 @@ function generateRandomString(length) {
   return result;
 }
 
+// Definisi model Petani
 const Petani = db.define(
-  "data_petani",
+  "data_petani", // Nama tabel di database
   {
     idlahan: {
-      type: DataTypes.STRING,
-      defaultValue: () => `LHN-${generateRandomString(6)}`,
-      allowNull: false,
+      type: DataTypes.STRING, // Tipe data string
+      defaultValue: () => `LHN-${generateRandomString(6)}`, // Menghasilkan ID lahan acak dengan prefix 'LHN-'
+      allowNull: false, // Tidak boleh null
       validate: {
-        notEmpty: true,
+        notEmpty: true, // Validasi bahwa nilai tidak boleh kosong
       },
     },
     userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+      type: DataTypes.INTEGER, // Tipe data integer
+      allowNull: false, // Tidak boleh null
       validate: {
-        notEmpty: true,
+        notEmpty: true, // Validasi bahwa nilai tidak boleh kosong
       },
     },
-    lokasilahan: DataTypes.STRING,
-    luaslahan: DataTypes.STRING,
-    statuskepemilikanlahan: DataTypes.STRING,
+    lokasilahan: DataTypes.STRING, // Tipe data string
+    luaslahan: DataTypes.STRING, // Tipe data string
+    statuskepemilikanlahan: DataTypes.STRING, // Tipe data string
     periodeTanamMulai: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
+      type: DataTypes.DATEONLY, // Tipe data tanggal (hanya tanggal, tanpa waktu)
+      allowNull: false, // Tidak boleh null
       validate: {
-        notEmpty: true,
+        notEmpty: true, // Validasi bahwa nilai tidak boleh kosong
       },
     },
     periodeTanamSelesai: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
+      type: DataTypes.DATEONLY, // Tipe data tanggal (hanya tanggal, tanpa waktu)
+      allowNull: false, // Tidak boleh null
       validate: {
-        notEmpty: true,
+        notEmpty: true, // Validasi bahwa nilai tidak boleh kosong
       },
     },
-    varietassingkong: DataTypes.STRING,
-    estimasiproduksi: DataTypes.STRING,
-    produksiaktual: DataTypes.STRING,
-    catatantambahan: DataTypes.STRING,
-    jenispupuk: DataTypes.STRING,
-    jumlahpupuk: DataTypes.STRING,
-    hargajual: DataTypes.STRING,
-    totalpendapatan: DataTypes.STRING,
-    pendapatanbersih: DataTypes.STRING,
+    varietassingkong: DataTypes.STRING, // Tipe data string
+    estimasiproduksi: DataTypes.STRING, // Tipe data string
+    produksiaktual: DataTypes.STRING, // Tipe data string
+    catatantambahan: DataTypes.STRING, // Tipe data string
+    jenispupuk: DataTypes.STRING, // Tipe data string
+    jumlahpupuk: DataTypes.STRING, // Tipe data string
   },
   {
-    freezeTableName: true,
+    freezeTableName: true, // Nama tabel tidak akan diubah secara otomatis menjadi bentuk jamak oleh Sequelize
   }
 );
-Users.hasMany(Petani);
-Petani.belongsTo(Users, { foreignKey: "userId" });
 
-export default Petani;
+// Membuat relasi antara Users dan Petani
+Users.hasMany(Petani); // User memiliki banyak data petani
+Petani.belongsTo(Users, { foreignKey: "userId" }); // Data petani milik satu user, dengan userId sebagai foreign key
+
+export default Petani; // Mengekspor model Petani agar bisa digunakan di bagian lain dari aplikasi

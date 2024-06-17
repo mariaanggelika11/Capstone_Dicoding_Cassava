@@ -1,8 +1,11 @@
+// users.js
+
 import User from "../models/UserModel.js";
-import argon2 from "argon2";
+import bcrypt from "bcrypt"; // Ubah import dari argon2 menjadi bcrypt
 import PetaniUsers from "../models/PetaniUserModel.js";
 import LogisticUser from "../models/LogisticUserModel.js";
 import PabrikUser from "../models/PabrikUserModel.js";
+import PerusahaanUser from "../models/PerusahaanUserModel.js"; // Tambahkan ini jika diperlukan
 import fs from "fs/promises";
 import path from "path";
 
@@ -19,8 +22,6 @@ async function deleteFile(filename) {
     console.error(`Gagal menghapus file ${filename}: ${error.message}`);
   }
 }
-
-// Diasumsikan import model dan fungsi lainnya telah dilakukan di bagian atas
 
 export const deleteUser = async (req, res) => {
   try {
@@ -48,6 +49,11 @@ export const deleteUser = async (req, res) => {
         fotoFilename = pabrik?.foto;
         await PabrikUser.destroy({ where: { uuid: user.uuid } });
         break;
+      case "perusahaan": // Tambahkan ini
+        const perusahaan = await PerusahaanUser.findOne({ where: { uuid: user.uuid } });
+        fotoFilename = perusahaan?.foto;
+        await PerusahaanUser.destroy({ where: { uuid: user.uuid } });
+        break;
       default:
         console.log("Role pengguna tidak dikenali, tidak ada foto untuk dihapus.");
     }
@@ -74,13 +80,13 @@ export const createUser = async (req, res) => {
   }
 
   try {
-    const hashPassword = await argon2.hash(password);
+    const hashedPassword = await bcrypt.hash(password, 10); // Gunakan bcrypt untuk hash password
+
     const newUser = await User.create({
       name,
       email,
-      password: hashPassword,
+      password: hashedPassword,
       role,
-      // Tambahkan atribut lain jika perlu
     });
 
     const userDetails = {
@@ -90,17 +96,23 @@ export const createUser = async (req, res) => {
       nohp: nohp || "",
       alamat: alamat || "",
       foto: foto, // Simpan nama file foto
-      url: `${req.protocol}://${req.get("host")}/profile/profile.png`, // Simpan nama file foto
-      password: hashPassword,
+      url: `${req.protocol}://${req.get("host")}/profile/${foto}`, // Simpan URL foto
+      password: hashedPassword,
     };
 
-    // Menyesuaikan logika berikut berdasarkan role pengguna
-    if (role.toLowerCase() === "petani") {
-      await PetaniUsers.create(userDetails);
-    } else if (role.toLowerCase() === "logistik") {
-      await LogisticUser.create(userDetails);
-    } else if (role.toLowerCase() === "pabrik") {
-      await PabrikUser.create(userDetails);
+    switch (role.toLowerCase()) {
+      case "petani":
+        await PetaniUsers.create(userDetails);
+        break;
+      case "logistik":
+        await LogisticUser.create(userDetails);
+        break;
+      case "pabrik":
+        await PabrikUser.create(userDetails);
+        break;
+      case "perusahaan": // Tambahkan ini jika diperlukan
+        await PerusahaanUser.create(userDetails);
+        break;
     }
 
     res.status(201).json({ msg: "Register Berhasil" });
@@ -130,7 +142,6 @@ export const getUserById = async (req, res) => {
 
     if (!user) return res.status(404).json({ msg: "User tidak ditemukan" });
 
-    // Menyiapkan objek untuk mengembalikan informasi pengguna
     let userDetails = {
       uuid: user.uuid,
       name: user.name,
@@ -139,7 +150,6 @@ export const getUserById = async (req, res) => {
       additionalInfo: {},
     };
 
-    // Mendapatkan informasi tambahan berdasarkan role
     switch (user.role.toLowerCase()) {
       case "petani":
         userDetails.additionalInfo = await PetaniUsers.findOne({ where: { uuid: user.uuid } });
@@ -150,7 +160,9 @@ export const getUserById = async (req, res) => {
       case "pabrik":
         userDetails.additionalInfo = await PabrikUser.findOne({ where: { uuid: user.uuid } });
         break;
-      // Tambahkan case lainnya jika ada lebih banyak role
+      case "perusahaan": // Tambahkan ini jika diperlukan
+        userDetails.additionalInfo = await PerusahaanUser.findOne({ where: { uuid: user.uuid } });
+        break;
     }
 
     res.status(200).json(userDetails);
@@ -176,18 +188,16 @@ export const updateUser = async (req, res) => {
 
     let hashPassword = userToUpdate.password;
     if (password && password.trim() !== "") {
-      hashPassword = await argon2.hash(password);
+      hashPassword = await bcrypt.hash(password, 10); // Gunakan bcrypt untuk hash password
     }
 
     let foto = userToUpdate.foto;
     let url = userToUpdate.url;
 
-    // Jika ada file baru yang diupload, perbarui nama dan URL foto.
     if (req.file) {
       foto = req.file.filename;
       url = `${req.protocol}://${req.get("host")}/profile/${req.file.filename}`;
 
-      // Hapus file foto lama jika ada foto baru dan bukan foto default.
       if (userToUpdate.foto && !userToUpdate.foto.startsWith("defaultProfile.png")) {
         await deleteFile(userToUpdate.foto);
       }
@@ -199,24 +209,26 @@ export const updateUser = async (req, res) => {
         email,
         password: hashPassword,
         role,
-        foto, // Nama file foto baru atau yang lama
-        url, // URL baru atau yang lama
+        foto,
+        url,
       },
       { where: { uuid } }
     );
 
-    // Mengupdate detail pengguna berdasarkan role dengan asumsi struktur tabel serupa
     const updateDetails = { name, email, nohp: nohp || "", alamat: alamat || "", foto, url, password: hashPassword };
 
     switch (role.toLowerCase()) {
       case "petani":
         await PetaniUsers.update(updateDetails, { where: { uuid } });
         break;
-      case "logistik":
+      case "log   istik":
         await LogisticUser.update(updateDetails, { where: { uuid } });
         break;
       case "pabrik":
         await PabrikUser.update(updateDetails, { where: { uuid } });
+        break;
+      case "perusahaan": // Tambahkan ini jika diperlukan
+        await PerusahaanUser.update(updateDetails, { where: { uuid } });
         break;
       default:
         console.log("Role pengguna tidak dikenali, update detail pengguna tidak dilakukan.");

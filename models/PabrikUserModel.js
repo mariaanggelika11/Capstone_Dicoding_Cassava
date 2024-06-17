@@ -1,66 +1,69 @@
-import { Sequelize } from "sequelize";
-import db from "../config/Database.js";
+import { Sequelize } from "sequelize"; // Mengimpor Sequelize dari modul sequelize
+import db from "../config/Database.js"; // Mengimpor konfigurasi database dari file Database.js
 
-const { DataTypes } = Sequelize;
+const { DataTypes } = Sequelize; // Mendestrukturisasi DataTypes dari Sequelize
+
 // Fungsi untuk menghasilkan string acak dengan panjang tertentu
 function generateRandomString(length) {
-  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  let result = "";
-  const charactersLength = characters.length;
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; // Karakter yang digunakan untuk string acak
+  let result = ""; // Inisialisasi hasil sebagai string kosong
+  const charactersLength = characters.length; // Panjang dari karakter yang tersedia
   for (let i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    result += characters.charAt(Math.floor(Math.random() * charactersLength)); // Menambahkan karakter acak ke hasil
   }
-  return result;
+  return result; // Mengembalikan hasil
 }
 
+// Definisi model PabrikUser
 const PabrikUser = db.define(
-  "pabrikusers",
+  "pabrikusers", // Nama tabel di database
   {
     uuid: {
-      type: DataTypes.STRING,
-      defaultValue: () => `PBR-${generateRandomString(6)}`,
-      allowNull: false,
+      type: DataTypes.STRING, // Tipe data string
+      defaultValue: () => `PBR-${generateRandomString(6)}`, // Menggunakan fungsi untuk menambahkan 'PBR-' diikuti oleh string acak
+      allowNull: false, // Tidak boleh null
       validate: {
-        notEmpty: true,
+        notEmpty: true, // Validasi bahwa kolom ini tidak boleh kosong
       },
     },
     name: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.STRING, // Tipe data string
+      allowNull: false, // Tidak boleh null
       validate: {
-        notEmpty: true,
-        len: [3, 100],
+        notEmpty: true, // Validasi bahwa kolom ini tidak boleh kosong
+        len: [3, 100], // Validasi panjang string antara 3 dan 100 karakter
       },
     },
     email: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.STRING, // Tipe data string
+      allowNull: false, // Tidak boleh null
       validate: {
-        notEmpty: true,
-        isEmail: true,
+        notEmpty: true, // Validasi bahwa kolom ini tidak boleh kosong
+        isEmail: true, // Validasi bahwa kolom ini harus berupa email yang valid
       },
     },
     nohp: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, // Tipe data string
     },
     alamat: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, // Tipe data string
     },
     foto: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, // Tipe data string
     },
-    url: DataTypes.STRING,
+    url: DataTypes.STRING, // Tipe data string
     password: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.STRING, // Tipe data string
+      allowNull: false, // Tidak boleh null
       validate: {
-        notEmpty: true,
+        notEmpty: true, // Validasi bahwa kolom ini tidak boleh kosong
       },
     },
   },
   {
-    freezeTableName: true,
+    freezeTableName: true, // Menggunakan nama tabel sesuai dengan nama model
   }
 );
 
+// Mengekspor model PabrikUser agar bisa digunakan di bagian lain dari aplikasi
 export default PabrikUser;
