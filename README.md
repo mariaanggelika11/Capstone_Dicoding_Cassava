@@ -1,32 +1,33 @@
-## Available Role
+## Installasi
 
-1. Administrator
-2. Farmer
-3. Pabrik
-4. Logistik == Perusahaan
+1. Clone repositori 
+    ```sh
+    git clone https://github.com/mariaanggelika11/Capstone_Dicoding_Cassava.git (in main branch)
+    ```
 
-## Tambahkan Protected route
+2. Instal Dependensi
+    ```sh
+    cd cassava-frontend
+    yarn install
+    # OR
+    npm install
+    ```
 
-1. Datalahan
-2. Data-logistik
+3. Jalankan Server Backend
+   > Untuk panduan instalasi backend, baca [di sini](https://github.com/mariaanggelika11/Capstone_Dicoding_Cassava.git (master branch))
+ 
+4. Jalankan di lokal
+    ```sh
+    npm run dev
+    ```
 
-logistik :
-LGS-tvzXxD
-pabrik :
-PBK-FcFDXw
-petani:
-LHN-19Spfa
-order pemanenan:
-ORD-30Xd96
+## Website
+[Cassava.Super](https://cassava-super.netlify.app/)
 
-user logistik:
-USR-FVeWpl
+## Team
+Team ID : `C624-PS123`
 
-pabrik user:
-USR-HIuUZ6
-
-petani user:
-USR-vJzF8p
-
-admin:
-USR-SVIKRS
+Anggota :
+(F2486XB105) – (Maria Anggelika)
+(F2486YB106) – (Muhammad Surya Rahman)
+(F4806YA157) – (Akmal Rahim)
