@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
           position: 'fixed',
           left: 0,
           height: '100%',
-          overflowY: 'auto'
+          overflowY: 'auto',
         }}>
         <Sidebar />
       </div>

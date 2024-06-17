@@ -306,7 +306,7 @@ const LandingPage = () => {
        </section>
 
        {/* teams  */}
-      <section id="teams" className="teams section-bg">
+      <section id="team" className="teams section-bg">
         <div data-aos="fade-up">
           <div className="section-title">
             <h2 className='gradient-text'>Teams</h2>
