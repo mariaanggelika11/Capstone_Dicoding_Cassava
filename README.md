@@ -28,6 +28,6 @@
 Team ID : `C624-PS123`
 
 Anggota :
-(F2486XB105) – (Maria Anggelika)
-(F2486YB106) – (Muhammad Surya Rahman)
-(F4806YA157) – (Akmal Rahim)
+- (F2486XB105) – (Maria Anggelika)
+- (F2486YB106) – (Muhammad Surya Rahman)
+- (F4806YA157) – (Akmal Rahim)
