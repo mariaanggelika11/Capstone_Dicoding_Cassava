@@ -289,17 +289,17 @@ const LandingPage = () => {
             <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
               <div className="icon"><img src={kebun} alt="kebun" style={{ width:"50%" }} /></div>
               <h4 className="title"><NavLink to="" style={{ textDecoration: "none" }}>Kebun</NavLink></h4>
-              <p className="description">Stakeholder kebun bagian pertama dalam proses ketertelusuran bahan baku umbi singkong. Mulai dari memanen Tandan Buah Segar hingga mengirim produk umbi singkong tersebut ke stakeholder logistik</p>
+              <p className="description">Stakeholder kebun bagian pertama dalam proses ketertelusuran bahan baku umbi singkong. Mulai dari memanen umbi singkong hingga mengirim produk umbi singkong tersebut ke stakeholder logistik</p>
             </div>
             <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
               <div className="icon"><img src={logistik} alt="logistik" style={{ width:"50%" }} /></div>
               <h4 className="title"><NavLink to=""  style={{ textDecoration: "none" }}>Logistik</NavLink></h4>
-              <p className="description">Stakeholder logistik menjadi garda terdepan untuk mengirimkan produk tandan buah segar ke pabrik untuk diolah menjadi tepung tapioka</p>
+              <p className="description">Stakeholder logistik menjadi garda terdepan untuk mengirimkan produk umbi singkong ke pabrik untuk diolah menjadi tepung tapioka</p>
             </div>
             <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
               <div className="icon"><img src={pabrik} alt="pabrik" style={{ width:"50%" }} /></div>
               <h4 className="title"><NavLink to="" style={{ textDecoration: "none" }}>Pabrik</NavLink></h4>
-              <p className="description">Stakeholder pabrik mengolah tandan buah segar melalui beberapa station seperti penimbangan, perebusan, pemurnian, pengempaan dan lain lain </p>
+              <p className="description">Stakeholder pabrik mengolah umbi singkong melalui beberapa station seperti penimbangan, perebusan, pemurnian, pengempaan dan lain lain </p>
             </div>
           </div>
         </div>
