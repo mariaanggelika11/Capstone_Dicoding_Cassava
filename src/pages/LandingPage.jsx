@@ -118,7 +118,7 @@ const LandingPage = () => {
                 <a className="nav-link" href="#stakeholder">STACKHOLDER</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#team">TEAM</a>
+                <a className="nav-link" href="#teams">TEAM</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#contact">CONTACT</a>
@@ -288,8 +288,8 @@ const LandingPage = () => {
           <div className="row">
             <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
               <div className="icon"><img src={kebun} alt="kebun" style={{ width:"50%" }} /></div>
-              <h4 className="title"><NavLink to="" style={{ textDecoration: "none" }}>Kebun</NavLink></h4>
-              <p className="description">Stakeholder kebun bagian pertama dalam proses ketertelusuran bahan baku umbi singkong. Mulai dari memanen umbi singkong hingga mengirim produk umbi singkong tersebut ke stakeholder logistik</p>
+              <h4 className="title"><NavLink to="" style={{ textDecoration: "none" }}>Petani</NavLink></h4>
+              <p className="description">Stakeholder petani bagian pertama dalam proses ketertelusuran bahan baku umbi singkong. Mulai dari memanen umbi singkong hingga mengirim produk umbi singkong tersebut ke stakeholder logistik</p>
             </div>
             <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
               <div className="icon"><img src={logistik} alt="logistik" style={{ width:"50%" }} /></div>
