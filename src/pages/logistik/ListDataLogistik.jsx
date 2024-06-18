@@ -96,8 +96,8 @@ const ListDataLogistik = () => {
                             <div className="card-body p-3">
                                 {user && userAuth?.role === "admin" && (
                                     <div className="mb-2">
-                                        <h5 className="card-title gradient-text mb-1">Nama Petani: {data.user.name}</h5>
-                                        <h5 className="card-title gradient-text mb-1">Email Petani: {data.user.email}</h5>
+                                        <h5 className="card-title gradient-text mb-1">Nama Logistik: {data.user.name}</h5>
+                                        <h5 className="card-title gradient-text mb-1">Email Logistik: {data.user.email}</h5>
                                     </div>
                                 )}
                                 <div className="mb-2">

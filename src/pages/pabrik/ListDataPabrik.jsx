@@ -74,8 +74,8 @@ const ListDataPabrik = () => {
                             <div className="card-body p-3">
                                 {user && user.role === "admin" && (
                                     <div className="mb-2">
-                                        <h5 className="card-title gradient-text mb-1">Nama Petani: {pabrik.user.name}</h5>
-                                        <h5 className="card-title gradient-text mb-1">Email Petani: {pabrik.user.email}</h5>
+                                        <h5 className="card-title gradient-text mb-1">Nama Pabrik: {pabrik.user.name}</h5>
+                                        <h5 className="card-title gradient-text mb-1">Email Pabrik: {pabrik.user.email}</h5>
                                     </div>
                                 )}
                                 <div className="mb-2" style={{ fontSize: "14px" }}>
