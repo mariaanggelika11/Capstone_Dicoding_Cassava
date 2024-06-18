@@ -171,7 +171,7 @@ const LandingPage = () => {
             <div className="icon-box" data-aos="fade-up" data-aos-delay="100">
               <div className="icon"><i className="fa-solid fa-link"></i></div>
               <h4 className="title"><NavLink className='service-link' to="">Rantai Pasok</NavLink></h4>
-              <p className="description">memastikan seluruh rantai pasoknya terdiri dari minyak kelapa sawit yang berasal dari sumber yang bertanggung jawab.</p>
+              <p className="description">memastikan seluruh rantai pasoknya terdiri dari tepung tapioka yang berasal dari sumber yang bertanggung jawab.</p>
             </div>
           </div>
 
