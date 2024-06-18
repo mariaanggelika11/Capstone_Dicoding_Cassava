@@ -233,7 +233,7 @@ const LandingPage = () => {
               </p>
               <ul>
                 <li><i className="fa-solid fa-circle-check"></i> visibilitas dalam transfer bahan pasokan</li>
-                <li><i className="fa-solid fa-circle-check"></i> transparansi dalam hasil crude palm oil</li>
+                <li><i className="fa-solid fa-circle-check"></i> transparansi dalam hasil tepung tapioka</li>
                 <li><i className="fa-solid fa-circle-check"></i> traceability dalam menulusuri bahan baku umbi singkong</li>
               </ul>
             </div>
@@ -294,7 +294,7 @@ const LandingPage = () => {
             <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
               <div className="icon"><img src={logistik} alt="logistik" style={{ width:"50%" }} /></div>
               <h4 className="title"><NavLink to=""  style={{ textDecoration: "none" }}>Logistik</NavLink></h4>
-              <p className="description">Stakeholder logistik menjadi garda terdepan untuk mengirimkan produk tandan buah segar ke pabrik untuk diolah menjadi crude palm oil</p>
+              <p className="description">Stakeholder logistik menjadi garda terdepan untuk mengirimkan produk tandan buah segar ke pabrik untuk diolah menjadi tepung tapioka</p>
             </div>
             <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
               <div className="icon"><img src={pabrik} alt="pabrik" style={{ width:"50%" }} /></div>
