@@ -109,7 +109,7 @@ const LandingPage = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" href="/dashboard">DASHBOARD</a>
+                <NavLink className="nav-link" to="/login">DASHBOARD</NavLink>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#about">ABOUT</a>
@@ -162,9 +162,9 @@ const LandingPage = () => {
       <section id='services' className='featured-services justfify-content-center text-center'>
          <div className="section-title mt-5">
             <h2 className="gradient-text">We Are Provide Some Services</h2>
-            <p> TELSA (Traceability Sawit) Super Apps adalah sebuah platfrom aplikasi yang memiliki fokus pada pengelolaan
-              rantai pasok yang mencakup, pasokan TBS, transportasi, pemrosesan utama dan lebih lanjut hingga menghasilkan
-              Crude Palm Oil (CPO) berbasis konsep Blockchain</p>
+            <p> Cassava Super Apps adalah sebuah platfrom aplikasi yang memiliki fokus pada pengelolaan
+              rantai pasok yang mencakup, pasokan umbi singkong, transportasi, pemrosesan utama dan lebih lanjut hingga menghasilkan
+              Crude Palm Oil (tepung tapioka) berbasis konsep Blockchain</p>
           </div>
         <div className="row featured-services mt-2 gx-5 my-5" data-aos="fade-up">
           <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
@@ -195,19 +195,19 @@ const LandingPage = () => {
             <div className="icon-box" data-aos="fade-up" data-aos-delay="400">
               <div className="icon"><i className="fa-solid fa-tachograph-digital"></i></div>
               <h4 className="title"><NavLink to="" className='service-link'>Model Digital</NavLink></h4>
-              <p className="description">Seluruh stakeholder mempunyai data satu sama lain dalam proses ketertelusuran hasil CPO</p>
+              <p className="description">Seluruh stakeholder mempunyai data satu sama lain dalam proses ketertelusuran hasil tepung tapioka</p>
             </div>
           </div>
         </div>
       </section>
 
 
-      <section id="tracebility" className="cta mb-3" >
+      <section id="tracebility" className="cta mb-3">
         <div className="cta-content" data-aos="zoom-in">
           <div className="text-center">
-            <h3>Ingin men - tracing produk CPO anda?</h3>
+            <h3>Ingin men - tracing produk tepung tapioka anda?</h3>
             <p>Silahkan meng - klik dibawah ini</p>
-            <NavLink className="cta-btn scrollto" style={{ textDecoration: 'none' }}  to="/tracebility">Trace CPO Anda!</NavLink>
+            <NavLink className="cta-btn scrollto" style={{ textDecoration: 'none' }}  to="/tracebility">Trace tepung tapioka Anda!</NavLink>
           </div>
       </div>
      </section>
@@ -216,9 +216,9 @@ const LandingPage = () => {
       <section id="about" className="about">
           <div className="section-title">
             <h2 className="gradient-text">About Us</h2>
-            <p> TELSA (Traceability Sawit) Super Apps adalah sebuah platfrom aplikasi yang memiliki fokus pada pengelolaan
-              rantai pasok yang mencakup, pasokan TBS, transportasi, pemrosesan utama dan lebih lanjut hingga menghasilkan
-              Crude Palm Oil (CPO) berbasis konsep Blockchain</p>
+            <p>Cassava Super Apps adalah sebuah platfrom aplikasi yang memiliki fokus pada pengelolaan
+              rantai pasok yang mencakup, pasokan umbi singkong, transportasi, pemrosesan utama dan lebih lanjut hingga menghasilkan
+              Crude Palm Oil (tepung tapioka) berbasis konsep Blockchain</p>
           </div>
 
           <div className="row">
@@ -234,7 +234,7 @@ const LandingPage = () => {
               <ul>
                 <li><i className="fa-solid fa-circle-check"></i> visibilitas dalam transfer bahan pasokan</li>
                 <li><i className="fa-solid fa-circle-check"></i> transparansi dalam hasil crude palm oil</li>
-                <li><i className="fa-solid fa-circle-check"></i> traceability dalam menulusuri bahan baku TBS</li>
+                <li><i className="fa-solid fa-circle-check"></i> traceability dalam menulusuri bahan baku umbi singkong</li>
               </ul>
             </div>
           </div>
@@ -289,7 +289,7 @@ const LandingPage = () => {
             <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
               <div className="icon"><img src={kebun} alt="kebun" style={{ width:"50%" }} /></div>
               <h4 className="title"><NavLink to="" style={{ textDecoration: "none" }}>Kebun</NavLink></h4>
-              <p className="description">Stakeholder kebun bagian pertama dalam proses ketertelusuran bahan baku crude palm oil. Mulai dari memanen Tandan Buah Segar hingga mengirim produk TBS tersebut ke stakeholder logistik</p>
+              <p className="description">Stakeholder kebun bagian pertama dalam proses ketertelusuran bahan baku umbi singkong. Mulai dari memanen Tandan Buah Segar hingga mengirim produk umbi singkong tersebut ke stakeholder logistik</p>
             </div>
             <div className="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
               <div className="icon"><img src={logistik} alt="logistik" style={{ width:"50%" }} /></div>
@@ -306,7 +306,7 @@ const LandingPage = () => {
        </section>
 
        {/* teams  */}
-      <section id="team" className="teams section-bg">
+      <section id="teams" className="teams section-bg">
         <div data-aos="fade-up">
           <div className="section-title">
             <h2 className='gradient-text'>Teams</h2>
@@ -358,18 +358,18 @@ const LandingPage = () => {
           </div>
           <ul className="faq-list">
             <li>
-              <div data-bs-toggle="collapse" className="collapsed question" href="#faq1">Ingin menggunakan jasa telsa super apps untuk perusahaan anda? <i className="fa-solid fa-chevron-down icon-show"></i><i className="fa-solid fa-chevron-up icon-close"></i></div>
+              <div data-bs-toggle="collapse" className="collapsed question" href="#faq1">Ingin menggunakan jasa Cassava super apps untuk perusahaan anda? <i className="fa-solid fa-chevron-down icon-show"></i><i className="fa-solid fa-chevron-up icon-close"></i></div>
               <div id="faq1" className="collapse" data-bs-parent=".faq-list">
                 <p>
-                  hubungi kontak yang tersedia untuk menggunakan jasa telsa super apps untuk implementasi web apps pada perusahaan anda
+                  hubungi kontak yang tersedia untuk menggunakan jasa Cassava super apps untuk implementasi web apps pada perusahaan anda
                 </p>
               </div>
             </li>
             <li>
-              <div data-bs-toggle="collapse" href="#faq2" className="collapsed question"> Cara tracing produk CPO? <i className="fa-solid fa-chevron-down icon-show"></i><i className="fa-solid fa-chevron-up icon-close"></i></div>
+              <div data-bs-toggle="collapse" href="#faq2" className="collapsed question"> Cara tracing produk tepung tapioka? <i className="fa-solid fa-chevron-down icon-show"></i><i className="fa-solid fa-chevron-up icon-close"></i></div>
               <div id="faq2" className="collapse" data-bs-parent=".faq-list">
                 <p>
-                  Masukan kode CPO anda, kemudian akan muncul data traceability Crude Palm Oil anda
+                  Masukan kode tepung tapioka anda
                 </p>
               </div>
             </li>
